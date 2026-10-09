@@ -113,17 +113,10 @@ a { color: inherit; }
 .btn:hover .arr { transform: translate(3px, -3px); }
 .cta { display: flex; flex-wrap: wrap; gap: .75rem; }
 
-/* Hero: a design canvas. The name sits in a selection frame. */
+/* Hero */
 .hero { position: relative; padding-block: clamp(3rem, 8vw, 6rem) clamp(2.5rem, 6vw, 4rem); display: grid; gap: 2rem; }
 .hero-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 1.5rem; }
-.frame { position: relative; width: fit-content; max-width: 100%; padding: clamp(.6rem, 1.6vw, 1.2rem) clamp(.8rem, 2vw, 1.6rem); margin-left: -.4rem;
-  outline: 1px solid var(--sel); outline-offset: 0; }
-.frame .h { position: absolute; width: .6rem; height: .6rem; background: var(--bg); border: 1.5px solid var(--sel); }
-.frame .h.tl { left: -.3rem; top: -.3rem; } .frame .h.tr { right: -.3rem; top: -.3rem; }
-.frame .h.bl { left: -.3rem; bottom: -.3rem; } .frame .h.br { right: -.3rem; bottom: -.3rem; }
-.frame .size { position: absolute; left: 50%; top: calc(100% + .55rem); transform: translateX(-50%); font: 500 .68rem var(--font-mono); letter-spacing: .04em;
-  background: var(--sel); color: #fff; padding: .15rem .5rem; border-radius: 4px; white-space: nowrap; }
-.frame .tag-name { position: absolute; left: 1rem; bottom: calc(100% + .4rem); font: 500 .68rem var(--font-mono); letter-spacing: .04em; color: var(--sel); white-space: nowrap; }
+.name { width: fit-content; max-width: 100%; }
 h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(3.4rem, 16.5vw, 15.5rem); line-height: .88; letter-spacing: -.012em; margin: 0; font-variant-ligatures: none; }
 h1 .word { display: inline-block; white-space: nowrap; margin-right: .2em; }
 h1 .word:last-child { margin-right: 0; }

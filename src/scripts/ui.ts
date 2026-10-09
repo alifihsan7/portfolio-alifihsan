@@ -63,19 +63,6 @@ if (spot && finePointer && !reduced) {
 }
 
 
-/* Hero canvas: live size label on the selection frame */
-const hero = $<HTMLElement>("[data-hero]");
-const frame = $<HTMLElement>("[data-frame]");
-const sizeLabel = $<HTMLElement>("[data-size]");
-const measure = () => {
-  if (!frame || !sizeLabel) return;
-  const r = frame.getBoundingClientRect();
-  sizeLabel.textContent = `${Math.round(r.width)} × ${Math.round(r.height)}`;
-};
-measure();
-addEventListener("resize", measure);
-document.fonts?.ready.then(measure);
-
 /* Hero tabs: the same facts as design or as code */
 const tabs = $$<HTMLButtonElement>(".tab");
 const selectTab = (tab: HTMLButtonElement) => {

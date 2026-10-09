@@ -20,11 +20,7 @@ const showFilters = projects.length >= 6; // filters appear once there are enoug
     </div>
 
     <div>
-      <div class="frame" data-frame>
-        <span class="tag-name" aria-hidden="true">Alif Ihsan</span>
-        <span class="h tl" aria-hidden="true"></span><span class="h tr" aria-hidden="true"></span>
-        <span class="h bl" aria-hidden="true"></span><span class="h br" aria-hidden="true"></span>
-        <span class="size" aria-hidden="true" data-size>Hug × Hug</span>
+      <div class="name">
         <h1 aria-label="Alif Ihsan">
           {name.map((w) => (
             <span class="word" aria-hidden="true">{[...w].map((c) => <span class="ch">{c}</span>)}</span>
