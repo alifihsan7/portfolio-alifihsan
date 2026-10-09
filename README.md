@@ -17,6 +17,7 @@ Member of the Advanced Software Engineering Laboratory (ASE Lab), Telkom Univers
 - **MYUU7IKKU** (2024): a music player interface for desktop and mobile. Personal design practice.
 - **LaundryApp** (2024): a mobile app interface for booking laundry services. Personal design practice.
 - **MoneyTime** (2025): a web app that combines money tracking and schedules. Academic group project.
+- **WealthWise** (2026): a personal finance web app with AI features (receipt scanner, chatbot, financial health score). Academic group project.
 
 ## Skills
 

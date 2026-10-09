@@ -456,5 +456,134 @@
         ]
       }
     ]
+  },
+  {
+    "id": "wealthwise",
+    "name": "WealthWise",
+    "year": 2026,
+    "category": [
+      "UI/UX",
+      "Web Development"
+    ],
+    "type": "Academic project",
+    "description": "A personal finance web app with AI: it reads receipts from a photo, answers questions about your own finances and gives a financial health score.",
+    "role": "Designer and Developer",
+    "team": "Team of 6 students",
+    "platform": "Web",
+    "tools": [],
+    "technology": [
+      "React",
+      "Tailwind CSS",
+      "Laravel",
+      "Groq"
+    ],
+    "problem": "",
+    "goal": "",
+    "process": "",
+    "myContribution": "UI/UX design, the React front end, the Laravel back end and the AI features, together with my team. The exact split of work is not available yet.",
+    "result": "",
+    "reflection": "",
+    "assets": [
+      "/img/wealthwise-thumb.webp"
+    ],
+    "links": [
+      {
+        "label": "View the code on GitHub",
+        "url": "https://github.com/yudhasw/WealthWise",
+        "public": true
+      }
+    ],
+    "format": "PROJECT SHOWCASE",
+    "status": "PUBLISHED",
+    "lede": "A personal finance web app that tracks accounts, transactions and budgets, and adds AI on top: it reads receipts from a photo, answers questions about your own money and scores your financial health. A group project for the course Platform-Based Applications.",
+    "gallery": [
+      {
+        "src": "/img/wealthwise-dashboard.webp",
+        "alt": "Dashboard with a green card showing total net worth, total income and expenses and a donut chart by category, quick actions for scanning a receipt and asking the AI planner, and a table of recent transactions.",
+        "caption": "Dashboard: total net worth, income and expenses, spending by category and the latest transactions."
+      },
+      {
+        "src": "/img/wealthwise-transactions.webp",
+        "alt": "Transactions page with filters for date range, account and category, cards for total income and expenses, and a table of transactions with edit and delete buttons.",
+        "caption": "Transactions: filter by date, account and category, with totals and edit and delete actions."
+      },
+      {
+        "src": "/img/wealthwise-categories.webp",
+        "alt": "Categories page with a monthly budget summary and a card for each expense category showing how much of its budget is spent.",
+        "caption": "Categories: a monthly budget for each expense category, with progress on what has been spent."
+      },
+      {
+        "src": "/img/wealthwise-planning.webp",
+        "alt": "Smart Planning page with an overall savings progress ring and cards for each savings goal showing the amount saved, the target and a progress bar.",
+        "caption": "Smart Planning: savings goals with the amount saved, the target and the amount to set aside per period."
+      },
+      {
+        "src": "/img/wealthwise-statistics.webp",
+        "alt": "Statistics page with total expenses, net savings, a list of top categories, a donut chart of expense composition and a bar chart of weekly activity.",
+        "caption": "Statistics: expenses by category, top categories and weekly activity for this month, the last 3 months or this year."
+      },
+      {
+        "src": "/img/wealthwise-health.webp",
+        "alt": "Financial Health page with a score gauge of 80 and cards for net worth, saving ratio, expense ratio and emergency fund.",
+        "caption": "Financial Health: a score from 0 to 100 with saving ratio, expense ratio and emergency fund."
+      },
+      {
+        "src": "/img/wealthwise-accounts.webp",
+        "alt": "Accounts page with the total balance and cards for a cash, a bank and an e-wallet account, plus a chart of how assets are distributed.",
+        "caption": "Accounts: the total balance and each cash, bank and e-wallet account."
+      }
+    ],
+    "sections": [
+      {
+        "h": "Overview",
+        "p": [
+          "WealthWise is a personal finance web app. It records accounts, income and expenses, sets a budget for each category and tracks savings goals. On top of that it adds AI: it reads a receipt from a photo, answers questions in a chatbot, writes a daily insight and gives a financial health score from 0 to 100."
+        ]
+      },
+      {
+        "h": "Context",
+        "p": [
+          "We built it as a group project for the course Platform-Based Applications (Aplikasi Berbasis Platform) in semester 6, in a team of six students."
+        ]
+      },
+      {
+        "h": "AI features",
+        "p": [
+          "Receipt scanner: upload a photo of a receipt and a vision model fills in the merchant, the amount and the date of the transaction.",
+          "Financial chatbot: it answers from the user's own data, such as the saving ratio, the expense ratio, the months of emergency fund and the health score.",
+          "Daily insights: the AI looks at the user's financial profile and suggests prioritised recommendations. The health score itself is calculated from the saving ratio, the expense ratio and the emergency fund."
+        ]
+      },
+      {
+        "h": "Tech stack",
+        "p": [
+          "The front end uses React, Vite, Tailwind CSS, React Router and Recharts. The back end is a Laravel REST API with token authentication (Laravel Sanctum) and email verification with a six-digit code. The database is SQLite or PostgreSQL. The AI features call the Groq API with Llama models, and the back end can run in Docker."
+        ]
+      },
+      {
+        "h": "My contribution",
+        "p": [
+          "I worked on the UI/UX design, the React front end, the Laravel back end and the AI features, together with my team. The exact split of work is not available yet."
+        ]
+      },
+      {
+        "h": "Status",
+        "p": [
+          "The original database is no longer active, so the screenshots come from a local copy of the project. The accounts, transactions and amounts in them are sample data. The AI features need an API key, so they are described here but not shown."
+        ]
+      }
+    ],
+    "stats": [
+      {
+        "k": "Team",
+        "v": "6",
+        "n": "students, I worked on design and code"
+      },
+      {
+        "k": "AI features",
+        "v": "3",
+        "n": "receipt scanner, chatbot and daily insights"
+      }
+    ]
   }
 ]
