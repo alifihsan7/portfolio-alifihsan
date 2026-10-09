@@ -24,7 +24,7 @@ Member of the Advanced Software Engineering Laboratory (ASE Lab), Telkom Univers
 
 **Design:** Figma · Wireframing · Prototyping · User research · Usability testing · Social media content design
 
-**Development:** TypeScript · Python · JavaScript · HTML · CSS · Next.js · Tailwind CSS · Flask · Supabase
+**Development:** TypeScript · Python · PHP · JavaScript · HTML · CSS · React · Next.js · Tailwind CSS · Laravel · Flask · Streamlit · Supabase
 
 ## Contact
 
