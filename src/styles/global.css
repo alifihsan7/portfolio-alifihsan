@@ -115,7 +115,7 @@ a { color: inherit; }
 .hero { position: relative; padding-block: clamp(3rem, 8vw, 6rem) clamp(2.5rem, 6vw, 4rem); display: grid; gap: 2rem; }
 .hero-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 1.5rem; }
 .name { width: fit-content; max-width: 100%; }
-h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(3.4rem, 16.5vw, 15.5rem); line-height: .88; letter-spacing: -.012em; margin: 0; font-variant-ligatures: none; }
+h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(3.4rem, 11.5vw, 11rem); line-height: .88; letter-spacing: -.012em; margin: 0; font-variant-ligatures: none; }
 h1 .word { display: inline-block; white-space: nowrap; margin-right: .2em; }
 h1 .word:last-child { margin-right: 0; }
 h1 .ch { display: inline-block; transition: transform .45s var(--ease), color .3s; will-change: transform; }
