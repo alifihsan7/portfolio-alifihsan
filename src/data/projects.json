@@ -585,5 +585,106 @@
         "n": "receipt scanner, chatbot and daily insights"
       }
     ]
+  },
+  {
+    "id": "caliber-dashboard",
+    "name": "CALIBER 2026 Dashboard",
+    "year": 2026,
+    "category": [
+      "UI/UX"
+    ],
+    "type": "Competition prototype",
+    "description": "An early prototype of a unified dashboard for a manufacturing competition: losses, equipment health and an action queue on four pages. Not submitted.",
+    "role": "UI/UX Designer",
+    "team": "Team of 3 students",
+    "platform": "Web",
+    "tools": [],
+    "technology": [
+      "Streamlit",
+      "Plotly",
+      "Python"
+    ],
+    "problem": "",
+    "goal": "",
+    "process": "",
+    "myContribution": "The UI/UX design of the dashboard: the four pages, the visual style and the charts. The data preparation and the analysis logic were done by my teammates.",
+    "result": "",
+    "reflection": "",
+    "assets": [
+      "/img/caliber-thumb.webp"
+    ],
+    "links": [],
+    "format": "PROJECT SHOWCASE",
+    "status": "PUBLISHED",
+    "lede": "An early prototype of a dashboard for a manufacturing competition, with the key number shown first: how many weeks before a failure the first warning appears. The team did not submit it, because we missed the deadline.",
+    "gallery": [
+      {
+        "src": "/img/caliber-executive.webp",
+        "alt": "Executive Overview page with four large number cards for total loss, total downtime, incidents and open RCA, a bar chart of loss by plant and a table of the top ten bad actors.",
+        "caption": "Executive Overview: four big numbers first, then loss by plant and the components that cause the most loss."
+      },
+      {
+        "src": "/img/caliber-asset-health.webp",
+        "alt": "Asset Health Monitoring page with a row of equipment tabs, a weekly trend line with dashed alarm and trip thresholds, a red cross at the failure week, and large cards for first alarm week, failure week, warning lead time and how much earlier the model detects.",
+        "caption": "Asset Health: a weekly trend with the alarm and trip lines, the failure marked, and the warning lead time as the biggest number."
+      },
+      {
+        "src": "/img/caliber-incident-explorer.webp",
+        "alt": "Incident Explorer page with filter buttons for plant, component and failure mechanism, a search box for similar incidents and a table of incidents with a coloured risk score.",
+        "caption": "Incident Explorer: filters for plant, component and failure mechanism, a place to search for similar past cases and a table with a colour-coded risk score."
+      },
+      {
+        "src": "/img/caliber-problem-tank.webp",
+        "alt": "Problem Tank page with three summary cards and a list of action cards, each with a coloured risk score block, the equipment tag, the action, the owner, the plan date and a status label.",
+        "caption": "Problem Tank: the action queue sorted by risk score, with the owner, the plan date and the status of each action."
+      }
+    ],
+    "sections": [
+      {
+        "h": "Overview",
+        "p": [
+          "This is an early prototype of a dashboard for the CALIBER 2026 competition. The idea was to bring the numbers that normally sit in separate dashboards into one place: how much loss and downtime there is, which equipment is getting worse, which past incidents look alike, and which actions are still open."
+        ]
+      },
+      {
+        "h": "Context",
+        "p": [
+          "CALIBER 2026 is a competition organised by PT Chandra Asri Pacific Tbk. Our team of three students chose Case 2, Intelligent Manufacturing, which asks for a unified dashboard with AI insight and follow-up actions."
+        ]
+      },
+      {
+        "h": "Design decisions",
+        "p": [
+          "Big numbers come first. Every page opens with the same row of large cards, so the main answer is visible without scrolling or reading a chart.",
+          "On the Asset Health page the most important number is the warning lead time: how many weeks pass between the first alarm and the failure. The alarm line is yellow, the trip line is red and a red cross marks the failure, so the story reads at a glance.",
+          "The style is bold and flat, with thick outlines, strong blocks of colour and the same layout on every page, so a viewer who learns one page can read the others."
+        ]
+      },
+      {
+        "h": "My contribution",
+        "p": [
+          "I designed the dashboard: the four pages, the visual style and the charts. The data preparation and the analysis logic were done by my teammates."
+        ]
+      },
+      {
+        "h": "Status",
+        "p": [
+          "This stayed an early prototype. The team missed the submission deadline of 4 October 2026, so it was never submitted or judged, and it was not developed further.",
+          "The competition data belongs to the organiser, so the screenshots use anonymised sample data with generic equipment and plant names. The banner at the top of each page says so."
+        ]
+      }
+    ],
+    "stats": [
+      {
+        "k": "Pages",
+        "v": "4",
+        "n": "Executive, Asset Health, Incident Explorer and Problem Tank"
+      },
+      {
+        "k": "Status",
+        "v": "Not submitted",
+        "n": "the deadline was missed"
+      }
+    ]
   }
 ]
