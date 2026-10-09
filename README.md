@@ -20,7 +20,9 @@ Member of the Advanced Software Engineering Laboratory (ASE Lab), Telkom Univers
 
 ## Skills
 
-Figma · Python · TypeScript
+**Design:** Figma · Wireframing · Prototyping · User research · Usability testing · Social media content design
+
+**Development:** TypeScript · Python · JavaScript · HTML · CSS · Next.js · Tailwind CSS · Flask · Supabase
 
 ## Contact
 

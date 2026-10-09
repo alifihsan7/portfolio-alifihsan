@@ -390,3 +390,8 @@ footer { border-top: 1px solid var(--line); padding-top: 1.5rem; font: 400 .75re
 .chip[aria-pressed="true"] .n { opacity: .75; }
 @keyframes rowIn { from { opacity: 0; transform: translateY(14px); } }
 .row.pop { animation: rowIn .55s var(--ease) backwards; animation-delay: calc(var(--k, 0) * 70ms); }
+
+/* About: grouped skills */
+.about .skills { grid-column: 1 / -1; }
+.skill-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.5rem 3rem; }
+.sub-label { font: 500 .7rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin: 0 0 .6rem; }
