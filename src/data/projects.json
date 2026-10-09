@@ -138,7 +138,7 @@
       {
         "label": "Figma design file",
         "url": "https://www.figma.com/design/LhoeKByOR3LCsn9NYq2wnm/Cyclefy?node-id=571-2",
-        "public": false
+        "public": true
       }
     ],
     "format": "PROJECT SHOWCASE",
@@ -236,7 +236,7 @@
   {
     "id": "myuu7ikku",
     "name": "MYUU7IKKU",
-    "year": "",
+    "year": 2024,
     "category": [
       "UI/UX"
     ],
@@ -381,7 +381,7 @@
   {
     "id": "moneytime",
     "name": "MoneyTime",
-    "year": "",
+    "year": 2025,
     "category": [
       "Software Engineering",
       "Web Development"
@@ -440,7 +440,7 @@
       {
         "h": "Tech stack",
         "p": [
-          "The front end uses HTML, CSS and JavaScript. The back end uses Python (Flask), Supabase and Groq."
+          "The front end uses HTML, CSS and JavaScript. The back end uses Python (Flask), Supabase and Groq. Groq powers the MoneyTime Assistant chat on the Dashboard."
         ]
       },
       {
