@@ -7,6 +7,12 @@ import { projects } from "../data";
 const name = "Alif Ihsan".split(" ");
 const categories = ["All", ...new Set(projects.flatMap((p) => p.category))];
 const showFilters = projects.length >= 6; // filters appear once there are enough projects
+
+// Work summary, counted from the data. A project can belong to more than one category.
+const counts = new Map<string, number>();
+projects.forEach((p) => p.category.forEach((c) => counts.set(c, (counts.get(c) ?? 0) + 1)));
+const workSummary = [...counts].sort((a, b) => b[1] - a[1]).map(([c, n]) => c + " " + n).join(" · ");
+const slides = projects.filter((p) => p.assets?.[0]);
 ---
 
 <Base>
@@ -32,12 +38,32 @@ const showFilters = projects.length >= 6; // filters appear once there are enoug
       </p>
     </div>
 
-    <p class="lede">
-      Informatics student at Telkom University. I design interfaces in Figma and build software in TypeScript and Python. Right now I am learning data and AI.
-    </p>
-    <div class="cta">
-      <a class="btn primary" href="#work">View work <span class="arr" aria-hidden="true">↓</span></a>
-      <a class="btn" href="#experience">See experience</a>
+    <div class="hero-main">
+      <div class="hero-copy">
+        <p class="lede">
+          Informatics student at Telkom University. I design interfaces in Figma and build software in TypeScript and Python. Right now I am learning data and AI.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="#work">View work <span class="arr" aria-hidden="true">↓</span></a>
+          <a class="btn" href="#experience">See experience</a>
+        </div>
+      </div>
+
+      {slides.length > 0 && (
+        <div class="showcase" data-showcase aria-label="Selected projects">
+          <div class="shots">
+            {slides.map((p, i) => (
+              <a class={"shot" + (i === 0 ? " on" : "")} href={"/work/" + p.id} tabindex={i === 0 ? 0 : -1} aria-label={"Open project: " + p.name}>
+                <img src={p.assets[0]} alt={p.name + " preview"} width="1280" height="800" loading={i === 0 ? "eager" : "lazy"} />
+              </a>
+            ))}
+          </div>
+          <div class="shot-cap">
+            <span class="shot-name" data-showcase-name>{String(1).padStart(2, "0")} · {slides[0].name}</span>
+            <span class="dots" aria-hidden="true">{slides.map((_, i) => <i class={i === 0 ? "on" : ""}></i>)}</span>
+          </div>
+        </div>
+      )}
     </div>
 
     <div class="panel" id="panel-design" role="tabpanel" aria-labelledby="tab-design">
@@ -65,7 +91,7 @@ const showFilters = projects.length >= 6; // filters appear once there are enoug
         <p class="eyebrow">01</p>
         <h2 id="work-h">Work</h2>
       </div>
-      <p class="sub">Projects across design, software and data.</p>
+      <p class="sub">{projects.length} {projects.length === 1 ? "project" : "projects"}. {workSummary}.</p>
     </div>
 
     {showFilters && (

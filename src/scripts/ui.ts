@@ -157,7 +157,7 @@ if (location.pathname === "/" && sections.length) {
 }
 
 /* Work filters (rendered only when there are enough projects) */
-const chips = $$<HTMLButtonElement>(".chip");
+const chips = $<HTMLButtonElement>(".chip[data-c]");
 chips.forEach((chip) => chip.addEventListener("click", () => {
   chips.forEach((c) => c.setAttribute("aria-pressed", String(c === chip)));
   const cat = chip.dataset.c;
@@ -178,9 +178,51 @@ $$<HTMLElement>(".lane, .org").forEach((el) => {
   el.addEventListener("focusin", () => setOrg(id, true));
   el.addEventListener("focusout", () => setOrg(id, false));
 });
-$$<HTMLElement>(".lane").forEach((lane) => lane.addEventListener("click", () => {
-  document.getElementById("org-" + lane.dataset.org)?.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "center" });
+$<HTMLElement>(".lane").forEach((lane) => lane.addEventListener("click", () => {
+  const org = document.getElementById("org-" + lane.dataset.org);
+  if (org instanceof HTMLDetailsElement) org.open = true;
+  org?.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "center" });
 }));
+
+/* Experience: expand or collapse every organization */
+const orgs = $<HTMLDetailsElement>("details.org");
+const allBtn = $<HTMLButtonElement>("[data-org-all]");
+const syncAll = () => {
+  if (!allBtn) return;
+  const everyOpen = orgs.every((o) => o.open);
+  allBtn.textContent = everyOpen ? "Collapse all" : "Expand all";
+  allBtn.setAttribute("aria-pressed", String(everyOpen));
+};
+allBtn?.addEventListener("click", () => {
+  const open = !orgs.every((o) => o.open);
+  orgs.forEach((o) => { o.open = open; });
+  syncAll();
+});
+orgs.forEach((o) => o.addEventListener("toggle", syncAll));
+syncAll();
+
+/* Hero showcase: selected projects crossfade, one after another */
+const showcase = $<HTMLElement>("[data-showcase]");
+if (showcase) {
+  const shots = $<HTMLAnchorElement>(".shot", showcase);
+  const dots = $<HTMLElement>(".dots i", showcase);
+  const label = $<HTMLElement>("[data-showcase-name]", showcase);
+  const names = shots.map((a) => (a.getAttribute("aria-label") || "").replace("Open project: ", ""));
+  let cur = 0, timer = 0;
+  const show = (n: number) => {
+    cur = (n + shots.length) % shots.length;
+    shots.forEach((a, i) => { a.classList.toggle("on", i === cur); a.tabIndex = i === cur ? 0 : -1; });
+    dots.forEach((d, i) => d.classList.toggle("on", i === cur));
+    if (label) label.textContent = String(cur + 1).padStart(2, "0") + " · " + names[cur];
+  };
+  const play = () => { if (!reduced && shots.length > 1) timer = window.setInterval(() => show(cur + 1), 4500); };
+  const stop = () => window.clearInterval(timer);
+  play();
+  showcase.addEventListener("pointerenter", stop);
+  showcase.addEventListener("pointerleave", () => { stop(); play(); });
+  showcase.addEventListener("focusin", stop);
+  showcase.addEventListener("focusout", () => { stop(); play(); });
+}
 
 /* Lightbox for project galleries */
 const dlg = $<HTMLDialogElement>("#lightbox");

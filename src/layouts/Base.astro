@@ -15,6 +15,7 @@ const {
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const isHome = Astro.url.pathname === "/";
+const ogImage = new URL("/og.png", Astro.site);
 ---
 
 <!doctype html>
@@ -34,7 +35,12 @@ const isHome = Astro.url.pathname === "/";
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content="Alif Ihsan" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Alif Ihsan, UI/UX design and software development" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
