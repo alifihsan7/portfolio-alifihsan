@@ -89,11 +89,9 @@ a { color: inherit; }
 }
 @media (max-width: 40rem) {
   .top .wrap { flex-direction: column; align-items: flex-start; }
-  .top nav { width: 100%; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
-  .top nav::-webkit-scrollbar { display: none; }
-  .top nav { gap: .25rem .85rem; }
+  .top nav { width: 100%; gap: .25rem .9rem; }
   .top nav a { white-space: nowrap; font-size: .85rem; }
-  .theme { margin-left: auto; flex: none; }
+  .theme { position: absolute; right: 0; top: .6rem; }
 }
 
 /* Scroll reveal (only when JS is on) */
@@ -194,6 +192,7 @@ h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; let
 .empty p { margin: .5rem 0 0; color: var(--muted); }
 
 /* Project detail */
+.meta { font: 400 .75rem var(--font-mono); color: var(--muted); letter-spacing: .03em; display: flex; flex-wrap: wrap; gap: .25rem .75rem; }
 .back { display: inline-flex; gap: .5rem; font: 500 .8rem var(--font-mono); letter-spacing: .04em; color: var(--muted); text-decoration: none; margin: 2.25rem 0 1.5rem; transition: color .2s; }
 .back:hover { color: var(--fg); }
 .back span { transition: transform .25s var(--ease); }
@@ -299,8 +298,17 @@ dialog.lb::backdrop { background: rgba(5, 9, 18, .92); backdrop-filter: blur(6px
   .org-roles { grid-column: 1 / -1; }
   .chev { grid-column: 2; grid-row: 1; }
   .org-body { padding-left: 0; }
-  .axis, .lane { grid-template-columns: 6rem 1fr; gap: .5rem; }
-  .legend { padding-left: 6.5rem; }
+  .chart { overflow-x: visible; }
+  .chart-in { min-width: 0; }
+  .axis, .lane { grid-template-columns: 5.2rem 1fr; gap: .5rem; }
+  .lane-name { font-size: .75rem; overflow-wrap: anywhere; }
+  .legend { padding-left: 0; }
+  .tick { font-size: .62rem; padding-left: .25rem; }
+  .code { white-space: pre-wrap; overflow-wrap: anywhere; font-size: .8rem; padding: 1rem; }
+  .hero { padding-top: 2.25rem; }
+  h1 { font-size: clamp(3.4rem, 33vw, 9rem); line-height: .86; }
+  h1 .word { display: block; margin-right: 0; }
+  .hero-role { margin-top: .9rem; }
 }
 
 /* About */
@@ -332,20 +340,30 @@ footer { border-top: 1px solid var(--line); padding-top: 1.5rem; font: 400 .75re
 
 .js .reveal.settled { transition-delay: 0s; }
 
-/* Hero showcase: selected projects crossfade on the right */
+/* Hero showcase: a stack of project screens. The front one slides to the back, hover fans the stack. */
 .hero-main { display: grid; gap: 2rem; align-items: start; }
 .hero-copy { display: grid; gap: 2rem; }
 .showcase { display: none; }
 @media (min-width: 64rem) {
   .hero-main { grid-template-columns: minmax(0, 1fr) minmax(0, 27rem); gap: 3rem; }
-  .showcase { display: grid; gap: .6rem; }
+  .showcase { display: grid; gap: .75rem; }
 }
-.shots { position: relative; aspect-ratio: 16 / 10; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: var(--bg-raised); box-shadow: 0 30px 60px -34px rgba(0,0,0,.7); }
-.shot { position: absolute; inset: 0; opacity: 0; transition: opacity .9s var(--ease); }
-.shot.on { opacity: 1; }
-.shot img { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.02); transition: transform 6s linear; }
-.shot.on img { transform: scale(1.07); }
+.deck { position: relative; aspect-ratio: 16 / 10; margin: 3rem 3.2rem 0 0; }
+.deck .s { --step-x: 24px; --step-y: -21px; position: absolute; inset: 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: var(--bg-raised);
+  box-shadow: 0 24px 50px -28px rgba(0, 0, 0, .7); transform-origin: left bottom; z-index: calc(10 - var(--pos));
+  transform: translate(calc(var(--pos) * var(--step-x)), calc(var(--pos) * var(--step-y))) scale(calc(1 - var(--pos) * .04));
+  opacity: calc(1 - max(0, var(--pos) - 2)); filter: brightness(calc(1 - var(--pos) * .1));
+  transition: transform .9s var(--ease), opacity .9s var(--ease), filter .9s var(--ease); }
+.deck .s img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (hover: hover) and (pointer: fine) {
+  .showcase:hover .deck .s { --step-x: 38px; --step-y: -30px; }
+  .showcase:hover .deck .s:hover { filter: brightness(1); }
+}
 .shot-cap { display: flex; justify-content: space-between; align-items: center; gap: 1rem; font: 500 .75rem var(--font-mono); letter-spacing: .04em; color: var(--muted); }
 .dots { display: inline-flex; gap: .35rem; }
 .dots i { width: .45rem; height: .45rem; border-radius: 50%; background: var(--line); transition: background .3s, transform .3s; }
 .dots i.on { background: var(--accent); transform: scale(1.25); }
+
+/* Name entrance: letters rise once on load (backwards fill, so hover effects still work afterwards) */
+@keyframes rise { from { opacity: 0; transform: translateY(.5em) rotate(5deg); } }
+.js h1 .ch { animation: rise .95s var(--ease) backwards; animation-delay: calc(var(--i, 0) * 60ms + 150ms); }

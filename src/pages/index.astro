@@ -28,8 +28,8 @@ const slides = projects.filter((p) => p.assets?.[0]);
     <div>
       <div class="name">
         <h1 aria-label="Alif Ihsan">
-          {name.map((w) => (
-            <span class="word" aria-hidden="true">{[...w].map((c) => <span class="ch">{c}</span>)}</span>
+          {name.map((w, wi) => (
+            <span class="word" aria-hidden="true">{[...w].map((c, ci) => <span class="ch" style={"--i:" + (wi * 5 + ci)}>{c}</span>)}</span>
           ))}
         </h1>
       </div>
@@ -51,15 +51,22 @@ const slides = projects.filter((p) => p.assets?.[0]);
 
       {slides.length > 0 && (
         <div class="showcase" data-showcase aria-label="Selected projects">
-          <div class="shots">
+          <div class="deck">
             {slides.map((p, i) => (
-              <a class={"shot" + (i === 0 ? " on" : "")} href={"/work/" + p.id} tabindex={i === 0 ? 0 : -1} aria-label={"Open project: " + p.name}>
+              <a
+                class="s"
+                style={"--pos:" + Math.min(i, 3)}
+                href={"/work/" + p.id}
+                tabindex={i === 0 ? 0 : -1}
+                data-name={p.name}
+                aria-label={"Open project: " + p.name}
+              >
                 <img src={p.assets[0]} alt={p.name + " preview"} width="1280" height="800" loading={i === 0 ? "eager" : "lazy"} />
               </a>
             ))}
           </div>
           <div class="shot-cap">
-            <span class="shot-name" data-showcase-name>{String(1).padStart(2, "0")} · {slides[0].name}</span>
+            <span class="shot-name" data-showcase-name>01 · {slides[0].name}</span>
             <span class="dots" aria-hidden="true">{slides.map((_, i) => <i class={i === 0 ? "on" : ""}></i>)}</span>
           </div>
         </div>

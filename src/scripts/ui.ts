@@ -201,27 +201,33 @@ allBtn?.addEventListener("click", () => {
 orgs.forEach((o) => o.addEventListener("toggle", syncAll));
 syncAll();
 
-/* Hero showcase: selected projects crossfade, one after another */
+/* Hero showcase: the front screen goes to the back every few seconds */
 const showcase = $<HTMLElement>("[data-showcase]");
 if (showcase) {
-  const shots = $<HTMLAnchorElement>(".shot", showcase);
-  const dots = $<HTMLElement>(".dots i", showcase);
+  const cards = $$<HTMLAnchorElement>(".s", showcase);
+  const dots = $$<HTMLElement>(".dots i", showcase);
   const label = $<HTMLElement>("[data-showcase-name]", showcase);
-  const names = shots.map((a) => (a.getAttribute("aria-label") || "").replace("Open project: ", ""));
+  const n = cards.length;
   let cur = 0, timer = 0;
-  const show = (n: number) => {
-    cur = (n + shots.length) % shots.length;
-    shots.forEach((a, i) => { a.classList.toggle("on", i === cur); a.tabIndex = i === cur ? 0 : -1; });
+  const caption = (i: number) => { if (label) label.textContent = String(i + 1).padStart(2, "0") + " · " + (cards[i].dataset.name || ""); };
+  const show = (to: number) => {
+    cur = (to + n) % n;
+    cards.forEach((a, i) => {
+      const pos = (i - cur + n) % n;
+      a.style.setProperty("--pos", String(Math.min(pos, 3)));
+      a.tabIndex = pos === 0 ? 0 : -1;
+    });
     dots.forEach((d, i) => d.classList.toggle("on", i === cur));
-    if (label) label.textContent = String(cur + 1).padStart(2, "0") + " · " + names[cur];
+    caption(cur);
   };
-  const play = () => { if (!reduced && shots.length > 1) timer = window.setInterval(() => show(cur + 1), 4500); };
+  const play = () => { if (!reduced && n > 1) timer = window.setInterval(() => show(cur + 1), 4200); };
   const stop = () => window.clearInterval(timer);
   play();
   showcase.addEventListener("pointerenter", stop);
-  showcase.addEventListener("pointerleave", () => { stop(); play(); });
+  showcase.addEventListener("pointerleave", () => { stop(); play(); caption(cur); });
   showcase.addEventListener("focusin", stop);
   showcase.addEventListener("focusout", () => { stop(); play(); });
+  cards.forEach((a, i) => a.addEventListener("pointerenter", () => caption(i)));
 }
 
 /* Lightbox for project galleries */
