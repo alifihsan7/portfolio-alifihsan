@@ -163,16 +163,31 @@ if (location.pathname === "/" && sections.length) {
   sections.forEach((s) => nav.observe(s));
 }
 
-/* Work filters (rendered only when there are enough projects) */
+/* Work filters: show matching rows, renumber them, and replay a short entrance */
 const chips = $$<HTMLButtonElement>(".chip[data-c]");
-chips.forEach((chip) => chip.addEventListener("click", () => {
-  chips.forEach((c) => c.setAttribute("aria-pressed", String(c === chip)));
-  const cat = chip.dataset.c;
-  $$<HTMLElement>(".row[data-cats]").forEach((card) => {
-    const cats = (card.dataset.cats || "").split("|");
-    card.hidden = cat !== "All" && !cats.includes(cat || "");
+const rowsAll = $$<HTMLElement>(".row[data-cats]");
+const status = $<HTMLElement>("[data-filter-status]");
+const applyFilter = (cat: string) => {
+  chips.forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.c === cat)));
+  let shown = 0;
+  rowsAll.forEach((row) => {
+    const match = cat === "All" || (row.dataset.cats || "").split("|").includes(cat);
+    row.hidden = !match;
+    if (!match) return;
+    row.classList.add("is-in", "settled");
+    const num = $<HTMLElement>(".r-num", row);
+    if (num) num.textContent = String(shown + 1).padStart(2, "0");
+    if (!reduced) {
+      row.style.setProperty("--k", String(shown));
+      row.classList.remove("pop");
+      void row.offsetWidth; // restart the animation
+      row.classList.add("pop");
+    }
+    shown++;
   });
-}));
+  if (status) status.textContent = cat === "All" ? "Showing all " + shown + " projects" : "Showing " + shown + " " + cat + (shown === 1 ? " project" : " projects");
+};
+chips.forEach((chip) => chip.addEventListener("click", () => applyFilter(chip.dataset.c || "All")));
 
 /* Timeline lanes and experience rows highlight each other */
 const setOrg = (id: string, on: boolean) => {

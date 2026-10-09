@@ -5,8 +5,10 @@ import Timeline from "../components/Timeline.astro";
 import { projects } from "../data";
 
 const name = "Alif Ihsan".split(" ");
+// Filter chips, each with its project count. A project can belong to more than one category.
 const categories = ["All", ...new Set(projects.flatMap((p) => p.category))];
-const showFilters = projects.length >= 6; // filters appear once there are enough projects
+const countOf = (c: string) => (c === "All" ? projects.length : projects.filter((p) => p.category.includes(c)).length);
+const showFilters = projects.length > 1;
 
 // Work summary, counted from the data. A project can belong to more than one category.
 const counts = new Map<string, number>();
@@ -87,9 +89,13 @@ const slides = projects.filter((p) => p.assets?.[0]);
 
     {showFilters && (
       <div class="filters" role="group" aria-label="Filter projects by category">
-        {categories.map((c) => <button class="chip" type="button" data-c={c} aria-pressed={c === "All"}>{c}</button>)}
+        {categories.map((c) => (
+          <button class="chip" type="button" data-c={c} aria-pressed={c === "All"}>{c} <span class="n">{countOf(c)}</span></button>
+        ))}
       </div>
     )}
+
+    <p class="vh" role="status" aria-live="polite" data-filter-status></p>
 
     {projects.length === 0 ? (
       <div class="empty">

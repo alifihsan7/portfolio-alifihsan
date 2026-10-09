@@ -384,3 +384,9 @@ footer { border-top: 1px solid var(--line); padding-top: 1.5rem; font: 400 .75re
 .js .hero-left .cta { animation: fadeUp .9s var(--ease) backwards 1.25s; }
 .js .hero > .facts { animation: fadeUp 1s var(--ease) backwards 1.4s; }
 .js .deck .s { animation: deckIn 1.2s var(--ease) backwards; animation-delay: calc(.7s + var(--pos) * .14s); }
+
+/* Work filter chips */
+.chip .n { font: 500 .68rem var(--font-mono); opacity: .6; margin-left: .25rem; }
+.chip[aria-pressed="true"] .n { opacity: .75; }
+@keyframes rowIn { from { opacity: 0; transform: translateY(14px); } }
+.row.pop { animation: rowIn .55s var(--ease) backwards; animation-delay: calc(var(--k, 0) * 70ms); }
