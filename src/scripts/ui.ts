@@ -62,23 +62,115 @@ if (spot && finePointer && !reduced) {
   document.documentElement.addEventListener("pointerleave", () => spot.classList.remove("on"));
 }
 
-/* Card glow and image parallax */
-if (finePointer && !reduced) {
-  $$<HTMLElement>(".card").forEach((card) => {
-    card.addEventListener("pointermove", (e) => {
-      const r = card.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width;
-      const y = (e.clientY - r.top) / r.height;
-      card.style.setProperty("--mx", x * 100 + "%");
-      card.style.setProperty("--my", y * 100 + "%");
-      card.style.setProperty("--px", String(x - 0.5));
-      card.style.setProperty("--py", String(y - 0.5));
-    });
-    card.addEventListener("pointerleave", () => {
-      card.style.setProperty("--px", "0");
-      card.style.setProperty("--py", "0");
-    });
+
+/* Hero canvas: live size label on the selection frame */
+const hero = $<HTMLElement>("[data-hero]");
+const frame = $<HTMLElement>("[data-frame]");
+const sizeLabel = $<HTMLElement>("[data-size]");
+const measure = () => {
+  if (!frame || !sizeLabel) return;
+  const r = frame.getBoundingClientRect();
+  sizeLabel.textContent = `${Math.round(r.width)} × ${Math.round(r.height)}`;
+};
+measure();
+addEventListener("resize", measure);
+document.fonts?.ready.then(measure);
+
+/* Hero canvas: two named cursors. They idle around the frame and chase the pointer when it is over the hero. */
+const cursors = $$<HTMLElement>("[data-cursor]");
+if (hero && frame && cursors.length) {
+  const state = cursors.map((el) => ({ el, x: 0, y: 0, lag: el.dataset.cursor === "d" ? 0.13 : 0.06, off: el.dataset.cursor === "d" ? [6, 6] : [-70, 46] }));
+  let pointer: { x: number; y: number } | null = null;
+  let raf = 0;
+  let visible = true;
+
+  const idle = (kind: string | undefined, t: number, fr: DOMRect, hr: DOMRect) => {
+    const l = fr.left - hr.left, tp = fr.top - hr.top;
+    if (kind === "d") return [l + fr.width - 36 + Math.sin(t / 1400) * 26, tp + fr.height * 0.32 + Math.cos(t / 1100) * 18];
+    return [l + fr.width * 0.42 + Math.sin(t / 1700) * 44, tp + fr.height - 34 + Math.cos(t / 900) * 10];
+  };
+  const step = (t: number, snap = false) => {
+    const hr = hero.getBoundingClientRect();
+    const fr = frame.getBoundingClientRect();
+    for (const s of state) {
+      const [tx, ty] = pointer ? [pointer.x + s.off[0], pointer.y + s.off[1]] : idle(s.el.dataset.cursor, t, fr, hr);
+      s.x = snap ? tx : s.x + (tx - s.x) * s.lag;
+      s.y = snap ? ty : s.y + (ty - s.y) * s.lag;
+      s.el.style.transform = `translate3d(${s.x.toFixed(1)}px, ${s.y.toFixed(1)}px, 0)`;
+    }
+  };
+  const loop = (t: number) => { step(t); raf = visible && !document.hidden ? requestAnimationFrame(loop) : 0; };
+  const start = () => { if (!raf && !reduced) raf = requestAnimationFrame(loop); };
+
+  step(0, true);
+  if (!reduced) {
+    start();
+    new IntersectionObserver((e) => { visible = e[0].isIntersecting; if (visible) start(); }).observe(hero);
+    document.addEventListener("visibilitychange", start);
+    if (finePointer) {
+      hero.addEventListener("pointermove", (e) => {
+        const hr = hero.getBoundingClientRect();
+        pointer = { x: e.clientX - hr.left, y: e.clientY - hr.top };
+      });
+      hero.addEventListener("pointerleave", () => { pointer = null; });
+    }
+  }
+  addEventListener("resize", () => step(0, true));
+}
+
+/* Hero tabs: the same facts as design or as code */
+const tabs = $$<HTMLButtonElement>(".tab");
+const selectTab = (tab: HTMLButtonElement) => {
+  tabs.forEach((t) => {
+    const on = t === tab;
+    t.setAttribute("aria-selected", String(on));
+    t.tabIndex = on ? 0 : -1;
+    const panel = document.getElementById(t.getAttribute("aria-controls") || "");
+    if (panel) panel.hidden = !on;
   });
+};
+tabs.forEach((tab, i) => {
+  tab.addEventListener("click", () => selectTab(tab));
+  tab.addEventListener("keydown", (e) => {
+    if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+    const next = tabs[(i + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length];
+    selectTab(next);
+    next.focus();
+  });
+});
+
+/* Work rows: a preview follows the pointer */
+const peek = $<HTMLElement>(".peek");
+if (peek && finePointer && !reduced && matchMedia("(min-width: 48rem)").matches) {
+  const pimg = $<HTMLImageElement>("img", peek)!;
+  let tx = 0, ty = 0, x = 0, y = 0, active = false, raf = 0;
+  const loop = () => {
+    x += (tx - x) * 0.16;
+    y += (ty - y) * 0.16;
+    const w = peek.offsetWidth, h = peek.offsetHeight;
+    const left = tx > innerWidth * 0.6 ? x - w - 28 : x + 28;
+    const tilt = Math.max(-7, Math.min(7, (tx - x) * 0.06));
+    peek.style.transform = `translate3d(${left.toFixed(1)}px, ${(y - h / 2).toFixed(1)}px, 0) rotate(${tilt.toFixed(2)}deg)`;
+    raf = active || Math.abs(tx - x) > 0.5 || Math.abs(ty - y) > 0.5 ? requestAnimationFrame(loop) : 0;
+  };
+  $$<HTMLElement>(".row[data-peek]").forEach((row) => {
+    row.addEventListener("pointerenter", (e) => {
+      pimg.src = row.dataset.peek || "";
+      if (!active) { x = tx = e.clientX; y = ty = e.clientY; }
+      active = true;
+      peek.classList.add("on");
+      if (!raf) raf = requestAnimationFrame(loop);
+    });
+    row.addEventListener("pointermove", (e) => { tx = e.clientX; ty = e.clientY; });
+    row.addEventListener("pointerleave", () => { active = false; peek.classList.remove("on"); });
+  });
+}
+
+/* Coordinate readout, like a design tool */
+const readout = $<HTMLElement>(".readout");
+if (readout && finePointer) {
+  const pad = (n: number) => String(Math.max(0, Math.round(n))).padStart(4, "0");
+  addEventListener("pointermove", (e) => { readout.textContent = `X ${pad(e.pageX)} · Y ${pad(e.pageY)}`; }, { passive: true });
 }
 
 /* Hero role text: types out the focus areas, then loops */
@@ -124,7 +216,7 @@ const chips = $$<HTMLButtonElement>(".chip");
 chips.forEach((chip) => chip.addEventListener("click", () => {
   chips.forEach((c) => c.setAttribute("aria-pressed", String(c === chip)));
   const cat = chip.dataset.c;
-  $$<HTMLElement>(".card[data-cats]").forEach((card) => {
+  $$<HTMLElement>(".row[data-cats]").forEach((card) => {
     const cats = (card.dataset.cats || "").split("|");
     card.hidden = cat !== "All" && !cats.includes(cat || "");
   });

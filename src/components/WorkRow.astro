@@ -1,0 +1,33 @@
+---
+import { NA, projectTech, type Project } from "../data";
+
+interface Props {
+  project: Project;
+  index: number;
+}
+const { project: p, index } = Astro.props;
+const thumb = p.assets?.[0];
+const meta = [p.category.join(" / "), p.role || NA, p.type].filter(Boolean);
+---
+
+<a
+  class="row reveal"
+  style={`--d:${index}`}
+  href={`/work/${p.id}`}
+  data-cats={p.category.join("|")}
+  data-peek={thumb}
+  aria-label={`Open project: ${p.name}`}
+>
+  <span class="r-num">{String(index + 1).padStart(2, "0")}</span>
+  <span class="r-title">{p.name}</span>
+  <span class="r-side">
+    <span class="r-year">{p.year || ""}</span>
+    <span class="r-arr" aria-hidden="true">↗</span>
+  </span>
+  <span class="r-body">
+    <span class="r-desc">{p.description || NA}</span>
+    <span class="r-meta">{meta.map((t) => <span>{t}</span>)}</span>
+    <span class="tech">{projectTech(p) || NA}</span>
+    {thumb && <span class="r-thumb"><img src={thumb} alt={`${p.name} preview`} loading="lazy" width="1280" height="800" /></span>}
+  </span>
+</a>

@@ -1,26 +1,42 @@
 ---
 import Base from "../layouts/Base.astro";
-import ProjectCard from "../components/ProjectCard.astro";
+import WorkRow from "../components/WorkRow.astro";
 import Timeline from "../components/Timeline.astro";
 import { projects } from "../data";
 
 const name = "Alif Ihsan".split(" ");
 const categories = ["All", ...new Set(projects.flatMap((p) => p.category))];
 const showFilters = projects.length >= 6; // filters appear once there are enough projects
-const strip = ["UI/UX Design", "Figma", "TypeScript", "Python", "Next.js", "Tailwind CSS", "Flask", "Supabase", "Data", "AI"];
+const cursor = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2l17 8.2-7.2 2.2L10 20 3 2z" fill="currentColor" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></svg>`;
 ---
 
 <Base>
-  <div class="hero" id="home">
-    <p class="eyebrow">Portfolio · 2026</p>
-    <h1 aria-label="Alif Ihsan">
-      {name.map((w) => (
-        <span class="word" aria-hidden="true">{[...w].map((c) => <span class="ch">{c}</span>)}</span>
-      ))}
-    </h1>
-    <p class="hero-role" data-typed="UI/UX design|Software development|Learning data and AI" aria-hidden="true">
-      <b>&gt;</b> <span class="t">UI/UX design</span><span class="caret"></span>
-    </p>
+  <div class="hero" id="home" data-hero>
+    <div class="hero-bar">
+      <p class="eyebrow">Portfolio · 2026</p>
+      <div class="tabs" role="tablist" aria-label="Show profile as">
+        <button class="tab" role="tab" id="tab-design" aria-selected="true" aria-controls="panel-design" type="button">Design</button>
+        <button class="tab" role="tab" id="tab-code" aria-selected="false" aria-controls="panel-code" type="button" tabindex="-1">Code</button>
+      </div>
+    </div>
+
+    <div>
+      <div class="frame" data-frame>
+        <span class="tag-name" aria-hidden="true">Alif Ihsan</span>
+        <span class="h tl" aria-hidden="true"></span><span class="h tr" aria-hidden="true"></span>
+        <span class="h bl" aria-hidden="true"></span><span class="h br" aria-hidden="true"></span>
+        <span class="size" aria-hidden="true" data-size>Hug × Hug</span>
+        <h1 aria-label="Alif Ihsan">
+          {name.map((w) => (
+            <span class="word" aria-hidden="true">{[...w].map((c) => <span class="ch">{c}</span>)}</span>
+          ))}
+        </h1>
+      </div>
+      <p class="hero-role" data-typed="UI/UX design|Software development|Learning data and AI" aria-hidden="true">
+        <b>&gt;</b> <span class="t">UI/UX design</span><span class="caret"></span>
+      </p>
+    </div>
+
     <p class="lede">
       Informatics student at Telkom University. I design interfaces in Figma and build software in TypeScript and Python. Right now I am learning data and AI.
     </p>
@@ -28,18 +44,26 @@ const strip = ["UI/UX Design", "Figma", "TypeScript", "Python", "Next.js", "Tail
       <a class="btn primary" href="#work">View work <span class="arr" aria-hidden="true">↓</span></a>
       <a class="btn" href="#experience">See experience</a>
     </div>
-    <dl class="facts">
-      <div><dt>Education</dt><dd>S1 Informatics, Telkom University, class of 2023</dd></div>
-      <div><dt>Focus</dt><dd>UI/UX design, software development</dd></div>
-      <div><dt>Learning</dt><dd>Data and AI</dd></div>
-      <div><dt>Currently</dt><dd>Member, Advanced Software Engineering Laboratory</dd></div>
-    </dl>
-  </div>
 
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      {[0, 1].map(() => <span>{strip.map((s) => <span>{s}</span>)}</span>)}
+    <div class="panel" id="panel-design" role="tabpanel" aria-labelledby="tab-design">
+      <dl class="facts">
+        <div><dt>Education</dt><dd>S1 Informatics, Telkom University, class of 2023</dd></div>
+        <div><dt>Focus</dt><dd>UI/UX design, software development</dd></div>
+        <div><dt>Learning</dt><dd>Data and AI</dd></div>
+        <div><dt>Currently</dt><dd>Member, Advanced Software Engineering Laboratory</dd></div>
+      </dl>
     </div>
+    <div class="panel" id="panel-code" role="tabpanel" aria-labelledby="tab-code" hidden>
+      <pre class="code" tabindex="0"><code><span class="k">const</span> alif = {"{"}
+  <span class="p">education</span>: <span class="s">"S1 Informatics, Telkom University, class of 2023"</span>,
+  <span class="p">focus</span>: [<span class="s">"UI/UX design"</span>, <span class="s">"Software development"</span>],
+  <span class="p">learning</span>: [<span class="s">"Data"</span>, <span class="s">"AI"</span>],
+  <span class="p">currently</span>: <span class="s">"Member, Advanced Software Engineering Laboratory"</span>,
+{"}"};</code></pre>
+    </div>
+
+    <div class="cur cur-d" data-cursor="d" aria-hidden="true"><Fragment set:html={cursor} /><span>Designer</span></div>
+    <div class="cur cur-c" data-cursor="c" aria-hidden="true"><Fragment set:html={cursor} /><span>Developer</span></div>
   </div>
 
   <section id="work" aria-labelledby="work-h">
@@ -63,8 +87,8 @@ const strip = ["UI/UX Design", "Figma", "TypeScript", "Python", "Next.js", "Tail
         <p>Each project is documented first, then added here. The first ones will appear on this page as soon as they are ready.</p>
       </div>
     ) : (
-      <div class="grid">
-        {projects.map((p, i) => <ProjectCard project={p} index={i} />)}
+      <div class="rows">
+        {projects.map((p, i) => <WorkRow project={p} index={i} />)}
       </div>
     )}
   </section>
