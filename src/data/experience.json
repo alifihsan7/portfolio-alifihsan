@@ -1,0 +1,141 @@
+{
+  "monthsTotal": 34,
+  "orgs": [
+    {
+      "name": "Advanced Software Engineering Laboratory",
+      "short": "ASE Lab",
+      "note": "Telkom University · 1 yr 4 mos",
+      "roles": [
+        {
+          "title": "Member",
+          "kind": "Lab member",
+          "dates": "Oct 2025 – Present",
+          "span": [
+            21,
+            33
+          ],
+          "work": true,
+          "bullets": [],
+          "pending": "Details not available yet."
+        },
+        {
+          "title": "UI/UX Designer",
+          "kind": "Internship · Hybrid",
+          "dates": "Jul 2025 – Oct 2025",
+          "span": [
+            18,
+            21
+          ],
+          "work": true,
+          "bullets": [
+            "Designed the user experience for Cyclefy, a web platform promoting the circular economy among students, covering donation, bartering, borrowing, recycling and repair services.",
+            "Ran usability testing and iterated on the designs based on user feedback.",
+            "Worked with front-end developers on design hand-off."
+          ],
+          "honor": "Awarded Best Project of the ASE Lab Internship Program for Cyclefy.",
+          "used": "Figma",
+          "project": "cyclefy"
+        }
+      ]
+    },
+    {
+      "name": "PT Metanouva Informatika",
+      "short": "Metanouva",
+      "note": "Cimahi, West Java",
+      "roles": [
+        {
+          "title": "Web Developer",
+          "kind": "Internship · Hybrid",
+          "dates": "Jun 2026 – Aug 2026",
+          "span": [
+            29,
+            31
+          ],
+          "work": true,
+          "bullets": [
+            "Worked in a team of seven on Digi Money Manager, a web-based project finance system for reimbursements and project financial records, using Rapid Application Development (RAD).",
+            "Designed all screens in Figma on my own, for the five user roles.",
+            "Built front-end modules and supporting endpoints together with other team members.",
+            "Fixed QA findings in my modules and wrote the user manual with the team."
+          ],
+          "used": "Figma, Next.js, TypeScript, Tailwind CSS",
+          "project": "digi-money-manager"
+        }
+      ]
+    },
+    {
+      "name": "Ikatan Mahasiswa Kerinci Bandung (IMK Bandung)",
+      "short": "IMK Bandung",
+      "note": "Student organization",
+      "roles": [
+        {
+          "title": "Head of Information and Communication Division",
+          "kind": "Organization · Hybrid",
+          "dates": "Dec 2024 – Sep 2026",
+          "span": [
+            11,
+            32
+          ],
+          "work": false,
+          "bullets": [
+            "Managed the organization's social media accounts, including content planning, scheduling and publishing.",
+            "Designed social media content such as feed posts, stories and event posters to promote events and programs.",
+            "Supervised the media team and coordinated collaboration across divisions."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Al-Fath Universitas Telkom",
+      "short": "Al-Fath",
+      "note": "Bandung Regency · 2 yrs",
+      "roles": [
+        {
+          "title": "Media and Communication Department Staff (12th Gen)",
+          "kind": "Organization",
+          "dates": "Feb 2025 – Dec 2025",
+          "span": [
+            13,
+            23
+          ],
+          "work": false,
+          "bullets": [],
+          "pending": "Details not available yet.",
+          "used": "Canva, Figma"
+        },
+        {
+          "title": "Media Division Staff, Faculty of Informatics (11th Gen)",
+          "kind": "Organization",
+          "dates": "Jan 2024 – Jan 2025",
+          "span": [
+            0,
+            12
+          ],
+          "work": false,
+          "bullets": [],
+          "pending": "Details not available yet.",
+          "used": "Canva, Adobe Premiere Pro"
+        }
+      ]
+    },
+    {
+      "name": "PMB I-Fest",
+      "short": "PMB I-Fest",
+      "note": "Bandung Regency",
+      "roles": [
+        {
+          "title": "Media Staff",
+          "kind": "Event",
+          "dates": "Aug 2024 – Sep 2024",
+          "span": [
+            7,
+            8
+          ],
+          "work": false,
+          "bullets": [],
+          "pending": "Details not available yet."
+        }
+      ]
+    }
+  ]
+}

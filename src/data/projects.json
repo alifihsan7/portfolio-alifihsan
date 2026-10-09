@@ -1,0 +1,460 @@
+[
+  {
+    "id": "digi-money-manager",
+    "name": "Digi Money Manager",
+    "year": 2026,
+    "category": [
+      "UI/UX",
+      "Web Development"
+    ],
+    "type": "Internship",
+    "description": "Web-based project finance system that centralizes reimbursement and project financial records for PT Metanouva Informatika.",
+    "role": "UI/UX Designer and Programmer",
+    "team": "Team of 7 students, Rapid Application Development (RAD)",
+    "platform": "Web",
+    "tools": [
+      "Figma"
+    ],
+    "technology": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS"
+    ],
+    "problem": "Reimbursements and project finance ran through WhatsApp messages and spreadsheets: scattered data, hard-to-track approval status, slow manual recording and time-consuming reports.",
+    "goal": "One system that records submission, approval and disbursement, with a clear approval flow for each role.",
+    "process": "",
+    "myContribution": "Designed all screens in Figma on my own. Built front-end modules and supporting endpoints with other team members. Fixed QA findings in my modules, wrote the user manual with the team.",
+    "result": "In use at the company.",
+    "reflection": "",
+    "assets": [
+      "/img/dmm-thumb.webp"
+    ],
+    "links": [],
+    "format": "PROJECT SHOWCASE",
+    "status": "PUBLISHED",
+    "lede": "A finance system that replaces WhatsApp and spreadsheet reimbursements with one tracked approval flow for five user roles. I designed every screen in Figma and built part of the front end.",
+    "gallery": [
+      {
+        "src": "/img/dmm-login.webp",
+        "alt": "Sign-in screen with a green panel listing three features on the left and an email and password form on the right.",
+        "caption": "Sign in: the left panel introduces three ideas, receipts filled by AI, an automatic debit and credit journal, and a real-time budget."
+      },
+      {
+        "src": "/img/dmm-submit.webp",
+        "alt": "Employee screen for submitting a reimbursement: a four-step progress bar and an upload area for a receipt photo.",
+        "caption": "Employee: submit a reimbursement by uploading a receipt. Four steps: upload, AI reads the data, review and send, submitted."
+      },
+      {
+        "src": "/img/dmm-history.webp",
+        "alt": "Submission history detail panel showing status, amount, budget item levels, anti-fraud status and an approval timeline.",
+        "caption": "Employee: submission detail with the budget item (Main, Sub, Keterangan), an anti-fraud status and the approval timeline."
+      },
+      {
+        "src": "/img/dmm-approval.webp",
+        "alt": "Project manager approval queue with a list of requests and a detail panel showing budget realization and Reject and Forward buttons.",
+        "caption": "Project manager: approval queue with budget realization next to each request, and actions to reject or forward to finance."
+      },
+      {
+        "src": "/img/dmm-disbursement.webp",
+        "alt": "Finance disbursement queue with a detail panel and a preview of the automatically generated accounting journal.",
+        "caption": "Finance: disbursement queue with a preview of the debit and credit journal entry that is generated automatically."
+      },
+      {
+        "src": "/img/dmm-dashboard.webp",
+        "alt": "Executive dashboard with summary cards, a 12-month cash flow bar chart, submission and installment summaries and an active projects table.",
+        "caption": "Director: executive dashboard with totals, a cash flow chart, submission and installment summaries and active projects."
+      },
+      {
+        "src": "/img/dmm-projects.webp",
+        "alt": "Project management screen with project cards filtered by status: planning, active, done, canceled.",
+        "caption": "Director: project management with search, status filters and a card per project."
+      }
+    ],
+    "sections": [
+      {
+        "h": "Overview",
+        "p": [
+          "Digi Money Manager is a web-based project finance system for PT Metanouva Informatika that centralizes reimbursement and project financial records. Before it, reimbursements ran through WhatsApp messages and spreadsheets, which scattered the data, made approval status hard to track, and made recording and reporting slow.",
+          "The system serves five roles: Superadmin, Director, Project Manager, Finance and Employee. An employee submits a reimbursement, the project manager approves it, and finance disburses it. The director approves budget item requests from project managers, and the superadmin manages accounts and the Chart of Accounts. It also reads receipts with a vision language model, exports to Excel, and includes Smart Chat, an AI assistant that answers finance questions based on the signed-in role."
+        ]
+      },
+      {
+        "h": "Context",
+        "p": [
+          "The app began as a Computing Project course with the same partner. I continued it during my internship from June to August 2026, working in a team of seven using the Rapid Application Development (RAD) method."
+        ]
+      },
+      {
+        "h": "Approval flow",
+        "p": [
+          "Every reimbursement is shown to the user as four steps: submitted, validated by the project manager, verified by finance, and disbursed. The screens above follow that path, and the finance screen previews the accounting journal that is generated when a request is disbursed."
+        ]
+      },
+      {
+        "h": "My contribution",
+        "p": [
+          "I designed all screens in Figma on my own, for all five roles. I also built front-end modules and supporting endpoints together with other team members, fixed QA findings in my modules, and wrote the user manual with the team."
+        ]
+      },
+      {
+        "h": "Status",
+        "p": [
+          "The application is in use at the company."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cyclefy",
+    "name": "Cyclefy",
+    "year": 2025,
+    "category": [
+      "UI/UX"
+    ],
+    "type": "Internship",
+    "description": "Web platform that supports the circular economy among university students through donation, barter, borrowing, recycling and repair services.",
+    "role": "UI/UX Designer",
+    "team": "Byte4Aura, 5 members (Backend, System Analyst and Project Manager, UI/UX, Frontend, QA)",
+    "platform": "Web",
+    "tools": [
+      "Figma"
+    ],
+    "technology": [],
+    "problem": "",
+    "goal": "Facilitate sharing and exchange of items between users; reduce waste through recycling and repair; build an environmentally minded community; provide a safe platform for non-monetary transactions.",
+    "process": "Design Thinking. Google Form survey (10 respondents), three personas, Sign Up and Sign In user flow, wireframes, UI design, prototype, usability test with SUS.",
+    "myContribution": "All UI/UX work: survey, personas, user flow, wireframes, UI design, prototype, usability testing. Design hand-off to front-end developers.",
+    "result": "SUS average of 83 from 10 Telkom University students (8 men, 2 women, aged 19 to 21), rated Excellent, Grade A in the project documentation. Awarded Best Project of the ASE Lab Internship Program.",
+    "reflection": "",
+    "assets": [
+      "/img/cyclefy-thumb.webp"
+    ],
+    "links": [
+      {
+        "label": "Visit the live site",
+        "url": "https://cyclefy.vercel.app/",
+        "public": true
+      },
+      {
+        "label": "Figma design file",
+        "url": "https://www.figma.com/design/LhoeKByOR3LCsn9NYq2wnm/Cyclefy?node-id=571-2",
+        "public": false
+      }
+    ],
+    "format": "PROJECT SHOWCASE",
+    "status": "PUBLISHED",
+    "lede": "A web platform for donating, bartering, borrowing, recycling and repairing items within a university community, designed end to end by one UI/UX designer in a team of five.",
+    "gallery": [
+      {
+        "src": "/img/cyclefy-landing.webp",
+        "alt": "Cyclefy landing page for a signed-in user, with a hero banner, Key Features cards, Latest News, About and Contact sections.",
+        "caption": "Landing page for a signed-in user: hero, the four feature groups, news, about and contact."
+      },
+      {
+        "src": "/img/cyclefy-signup.webp",
+        "alt": "Sign Up screen with username, email, password and confirm password fields, plus Google, Facebook and X sign-up options.",
+        "caption": "Sign Up with username, email and password, or with Google, Facebook or X."
+      },
+      {
+        "src": "/img/cyclefy-donation.webp",
+        "alt": "Donate Your Item page with a three-step guide and a donation form.",
+        "caption": "Donation: a three-step guide next to the form (name, description, category, address, contact number, photo)."
+      },
+      {
+        "src": "/img/cyclefy-barter.webp",
+        "alt": "Search for Items to Barter page with search, filters, sorting and a grid of item cards.",
+        "caption": "Barter: search, filters and sorting over item cards that show distance and owner."
+      },
+      {
+        "src": "/img/cyclefy-borrowing.webp",
+        "alt": "Borrowing page with three options: post an item, search for items to borrow, view borrowing history.",
+        "caption": "Borrowing: post an item, search for items, or open the borrowing history."
+      },
+      {
+        "src": "/img/cyclefy-recycling-location.webp",
+        "alt": "Find a Recycling Location page with search, filters and a list of locations with distance.",
+        "caption": "Recycling: a list of recycling locations with search, filters and distance."
+      },
+      {
+        "src": "/img/cyclefy-history-recycling.webp",
+        "alt": "History page showing a recycling request with a status timeline: Submitted, Confirmed, Completed.",
+        "caption": "History: each request has a status timeline, here Submitted, Confirmed, Completed."
+      }
+    ],
+    "sections": [
+      {
+        "h": "Overview",
+        "p": [
+          "Cyclefy supports the circular economy among university students through five services: donation, barter, borrowing, recycling and repair. It was built by team Byte4Aura at the Advanced Software Engineering Laboratory, Telkom University, as part of the ASE Lab Internship Program.",
+          "The system aims to make sharing and exchange easy, reduce waste through recycling and repair, build a community that cares about the environment, and offer a safe place for non-monetary transactions."
+        ]
+      },
+      {
+        "h": "Research",
+        "p": [
+          "I ran a Google Form survey with 10 respondents and wrote three personas from it: M. Sholeh, who wants to donate items; Bagus Hardianto, who needs repair services; and Imanuel Christian S., who wants to barter and borrow.",
+          "Their pain points shaped the services. Donors did not know where or how to give items away. People with broken items did not know how to fix them or where to take them. Students had no shared place to swap or lend things."
+        ]
+      },
+      {
+        "h": "Process",
+        "p": [
+          "The team followed Design Thinking. I mapped the Sign Up and Sign In flow first: a guest sees the home page, taps Get Started, then signs up manually with email verification or with a social account. From there I moved to wireframes, high-fidelity screens and an interactive prototype."
+        ]
+      },
+      {
+        "h": "Usability test",
+        "p": [
+          "I tested the prototype with 10 active Telkom University students aged 19 to 21 (8 men, 2 women) using the System Usability Scale. Every respondent had tried the prototype beforehand."
+        ]
+      },
+      {
+        "h": "My contribution",
+        "p": [
+          "I did all of the UI/UX work: the survey, personas, user flow, wireframes, UI design, prototype and usability test. I handed the designs to the front-end developers. Backend, system analysis, front-end and QA were done by other team members."
+        ]
+      }
+    ],
+    "stats": [
+      {
+        "k": "SUS score",
+        "v": "83",
+        "n": "10 respondents, rated Excellent (Grade A)"
+      },
+      {
+        "k": "Team",
+        "v": "5",
+        "n": "Byte4Aura, I was the UI/UX designer"
+      },
+      {
+        "k": "Recognition",
+        "v": "Best Project",
+        "n": "ASE Lab Internship Program"
+      }
+    ]
+  },
+  {
+    "id": "myuu7ikku",
+    "name": "MYUU7IKKU",
+    "year": "",
+    "category": [
+      "UI/UX"
+    ],
+    "type": "Personal project",
+    "description": "A music player interface designed as a self-directed practice, inspired by Spotify, for desktop and mobile.",
+    "role": "UI Designer",
+    "team": "Individual",
+    "platform": "Desktop and mobile",
+    "tools": [],
+    "technology": [
+      "UI Design",
+      "Mobile UI"
+    ],
+    "problem": "",
+    "goal": "",
+    "process": "",
+    "myContribution": "All of the design, desktop and mobile. Design only, no code.",
+    "result": "",
+    "reflection": "",
+    "assets": [
+      "/img/myuu-thumb.webp"
+    ],
+    "links": [],
+    "format": "PROJECT CARD",
+    "status": "PUBLISHED",
+    "lede": "A music player interface I designed for practice, inspired by Spotify. One desktop screen and a mobile version.",
+    "gallery": [
+      {
+        "src": "/img/myuu-desktop.webp",
+        "alt": "Desktop music player screen with a dark navy theme: sidebar, trending banner, playlists, today's hits, now playing and lyrics panels.",
+        "caption": "Desktop: sidebar for menu, library and playlists; a trending banner, playlists and daily hits; a side panel for the current track and lyrics."
+      },
+      {
+        "phone": true,
+        "src": "/img/myuu-m-splash.webp",
+        "alt": "Mobile splash screen with the MYUU7IKKU logo and a Get Started button.",
+        "caption": "Splash"
+      },
+      {
+        "phone": true,
+        "src": "/img/myuu-m-onboarding.webp",
+        "alt": "Mobile onboarding screen with an illustration, short text, Next and Skip buttons.",
+        "caption": "Onboarding"
+      },
+      {
+        "phone": true,
+        "src": "/img/myuu-m-register.webp",
+        "alt": "Mobile register screen with email, password and confirm password fields and a terms checkbox.",
+        "caption": "Register"
+      },
+      {
+        "phone": true,
+        "src": "/img/myuu-m-home.webp",
+        "alt": "Mobile home screen with tabs, live now, trending, recently played and playlists.",
+        "caption": "Home"
+      },
+      {
+        "phone": true,
+        "src": "/img/myuu-m-search.webp",
+        "alt": "Mobile search screen with genre cards and recent searches.",
+        "caption": "Search"
+      },
+      {
+        "phone": true,
+        "src": "/img/myuu-m-library.webp",
+        "alt": "Mobile library screen with tabs and a list of coloured playlists.",
+        "caption": "Library"
+      }
+    ],
+    "sections": [
+      {
+        "h": "About this project",
+        "p": [
+          "I designed this player as practice. The desktop layout uses a dark navy theme with a sidebar for menu, library and playlists, a main area for trending music, playlists and daily hits, and a side panel for the current track and lyrics. The mobile version covers the splash screen, onboarding, register, home, search and library.",
+          "The brand, songs and artists are fictional, and the photos are stock images."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "laundryapp",
+    "name": "LaundryApp",
+    "year": 2024,
+    "category": [
+      "UI/UX"
+    ],
+    "type": "Personal project",
+    "description": "A mobile app interface for finding and booking laundry services, designed as a practice and design exploration.",
+    "role": "UI Designer",
+    "team": "Individual",
+    "platform": "Mobile",
+    "tools": [
+      "Figma"
+    ],
+    "technology": [
+      "UI Design",
+      "Mobile UI"
+    ],
+    "problem": "",
+    "goal": "",
+    "process": "",
+    "myContribution": "All of the design, three mobile screens. Design only, no code.",
+    "result": "",
+    "reflection": "",
+    "assets": [
+      "/img/laundry-thumb.webp"
+    ],
+    "links": [],
+    "format": "PROJECT CARD",
+    "status": "PUBLISHED",
+    "lede": "A mobile app interface for finding and booking laundry services, designed for practice. Three screens in Figma.",
+    "gallery": [
+      {
+        "phone": true,
+        "src": "/img/laundry-home.webp",
+        "alt": "Mobile home screen with a welcome banner, search bar, service shortcuts, nearby service providers and order history.",
+        "caption": "Home: services, nearby providers, order history"
+      },
+      {
+        "phone": true,
+        "src": "/img/laundry-providers.webp",
+        "alt": "List of laundry service providers near the user with rating, distance and a View button.",
+        "caption": "Providers near you"
+      },
+      {
+        "phone": true,
+        "src": "/img/laundry-detail.webp",
+        "alt": "Provider page with tabs and a grid of services such as Wash and Iron, Express, Ironing, Standard Wash, Dry Clean and Self Service, and a Book Service Now button.",
+        "caption": "Provider page: choose a service and book"
+      }
+    ],
+    "sections": [
+      {
+        "h": "About this project",
+        "p": [
+          "I designed this app as practice and as a design exploration in Figma. The home screen shows service shortcuts, nearby providers and the order history. A second screen lists providers near the user, and the provider page lets the user choose a service, such as Wash & Iron, Express, Ironing, Standard Wash, Dry Clean or Self Service, and book it.",
+          "The provider names and ratings are fictional."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "moneytime",
+    "name": "MoneyTime",
+    "year": "",
+    "category": [
+      "Software Engineering",
+      "Web Development"
+    ],
+    "type": "Academic project",
+    "description": "A web app that brings money tracking and schedule management together in one dashboard, built as a group project for a software implementation and testing course.",
+    "role": "Designer and Developer",
+    "team": "Team of 5 students",
+    "platform": "Web",
+    "tools": [],
+    "technology": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Flask",
+      "Supabase",
+      "Groq"
+    ],
+    "problem": "",
+    "goal": "",
+    "process": "",
+    "myContribution": "Design and code, together with my group. The exact split of work is not available yet.",
+    "result": "All features work except Google Calendar sync, which is not functional.",
+    "reflection": "",
+    "assets": [
+      "/img/moneytime-thumb.webp"
+    ],
+    "links": [],
+    "format": "PROJECT SHOWCASE",
+    "status": "PUBLISHED",
+    "lede": "A web app that puts money and schedules on one dashboard. A group project for the course Software Implementation and Testing, where I worked on both design and code.",
+    "gallery": [
+      {
+        "src": "/img/moneytime-dashboard.webp",
+        "alt": "Dashboard page with income, expense, balance and upcoming schedule cards, a list of transactions by day, a schedule list and an assistant chat window.",
+        "caption": "Dashboard: monthly income, expenses and balance, transactions by day, upcoming schedule and the MoneyTime Assistant chat."
+      },
+      {
+        "src": "/img/moneytime-money.webp",
+        "alt": "Money page with summary cards, a list of transactions by day and a pie chart of spending by category.",
+        "caption": "Money: transactions by month and a pie chart of spending by category."
+      },
+      {
+        "src": "/img/moneytime-time.webp",
+        "alt": "Time page with counters for upcoming, completed and overdue schedules and lists grouped into Today and Next 7 Days.",
+        "caption": "Time: upcoming, completed and overdue schedules, grouped by Today, Next 7 Days and Later."
+      }
+    ],
+    "sections": [
+      {
+        "h": "Overview",
+        "p": [
+          "MoneyTime is a web application that combines money tracking and schedule management. It has three main pages: a Dashboard that summarizes both, a Money page for transactions and a spending chart, and a Time page for schedules. The Dashboard also has a chat assistant. We built it as a group project for the course Software Implementation and Testing (Implementasi dan Pengujian Perangkat Lunak)."
+        ]
+      },
+      {
+        "h": "Tech stack",
+        "p": [
+          "The front end uses HTML, CSS and JavaScript. The back end uses Python (Flask), Supabase and Groq."
+        ]
+      },
+      {
+        "h": "My contribution",
+        "p": [
+          "I worked on both the design and the code, in a team of five. The exact split of work between team members is not available yet."
+        ]
+      },
+      {
+        "h": "Status",
+        "p": [
+          "All features work except Google Calendar sync, which is not functional. The transactions and amounts in the screenshots are sample data."
+        ]
+      }
+    ]
+  }
+]

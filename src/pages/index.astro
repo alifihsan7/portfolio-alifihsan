@@ -1,0 +1,135 @@
+---
+import Base from "../layouts/Base.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import Timeline from "../components/Timeline.astro";
+import { projects } from "../data";
+
+const name = "Alif Ihsan".split(" ");
+const categories = ["All", ...new Set(projects.flatMap((p) => p.category))];
+const showFilters = projects.length >= 6; // filters appear once there are enough projects
+const strip = ["UI/UX Design", "Figma", "TypeScript", "Python", "Next.js", "Tailwind CSS", "Flask", "Supabase", "Data", "AI"];
+---
+
+<Base>
+  <div class="hero" id="home">
+    <p class="eyebrow">Portfolio · 2026</p>
+    <h1 aria-label="Alif Ihsan">
+      {name.map((w) => (
+        <span class="word" aria-hidden="true">{[...w].map((c) => <span class="ch">{c}</span>)}</span>
+      ))}
+    </h1>
+    <p class="hero-role" data-typed="UI/UX design|Software development|Learning data and AI" aria-hidden="true">
+      <b>&gt;</b> <span class="t">UI/UX design</span><span class="caret"></span>
+    </p>
+    <p class="lede">
+      Informatics student at Telkom University. I design interfaces in Figma and build software in TypeScript and Python. Right now I am learning data and AI.
+    </p>
+    <div class="cta">
+      <a class="btn primary" href="#work">View work <span class="arr" aria-hidden="true">↓</span></a>
+      <a class="btn" href="#experience">See experience</a>
+    </div>
+    <dl class="facts">
+      <div><dt>Education</dt><dd>S1 Informatics, Telkom University, class of 2023</dd></div>
+      <div><dt>Focus</dt><dd>UI/UX design, software development</dd></div>
+      <div><dt>Learning</dt><dd>Data and AI</dd></div>
+      <div><dt>Currently</dt><dd>Member, Advanced Software Engineering Laboratory</dd></div>
+    </dl>
+  </div>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      {[0, 1].map(() => <span>{strip.map((s) => <span>{s}</span>)}</span>)}
+    </div>
+  </div>
+
+  <section id="work" aria-labelledby="work-h">
+    <div class="head reveal">
+      <div class="head-l">
+        <p class="eyebrow">01</p>
+        <h2 id="work-h">Work</h2>
+      </div>
+      <p class="sub">Projects across design, software and data.</p>
+    </div>
+
+    {showFilters && (
+      <div class="filters" role="group" aria-label="Filter projects by category">
+        {categories.map((c) => <button class="chip" type="button" data-c={c} aria-pressed={c === "All"}>{c}</button>)}
+      </div>
+    )}
+
+    {projects.length === 0 ? (
+      <div class="empty">
+        <h3>No projects published yet</h3>
+        <p>Each project is documented first, then added here. The first ones will appear on this page as soon as they are ready.</p>
+      </div>
+    ) : (
+      <div class="grid">
+        {projects.map((p, i) => <ProjectCard project={p} index={i} />)}
+      </div>
+    )}
+  </section>
+
+  <section id="experience" aria-labelledby="exp-h">
+    <div class="head reveal">
+      <div class="head-l">
+        <p class="eyebrow">02</p>
+        <h2 id="exp-h">Experience</h2>
+      </div>
+      <p class="sub">Internships, lab work and organizations since January 2024. Hover a row in the timeline to find its details.</p>
+    </div>
+    <Timeline />
+  </section>
+
+  <section id="about" aria-labelledby="about-h">
+    <div class="head reveal">
+      <div class="head-l">
+        <p class="eyebrow">03</p>
+        <h2 id="about-h">About</h2>
+      </div>
+    </div>
+    <div class="about">
+      <div class="wide reveal">
+        <p class="label">Background</p>
+        <p>A motivated Informatics student at Telkom University with a strong foundation in UI/UX design, currently focusing on expanding my skills in Artificial Intelligence and Data Science. I enjoy exploring how user-centered design and intelligent models can solve real problems to create meaningful digital experiences. Currently strengthening my technical capabilities in AI algorithms while aiming to contribute to impactful and scalable tech solutions.</p>
+      </div>
+      <div class="reveal">
+        <p class="label">Education</p>
+        <p>S1 Informatics<br />Telkom University<br /><span class="todo">Class of 2023</span></p>
+      </div>
+      <div class="reveal" style="--d:1">
+        <p class="label">Interests</p>
+        <p class="todo">Not available yet.</p>
+      </div>
+      <div class="reveal" style="--d:2">
+        <p class="label">Skills</p>
+        <ul><li class="pill">Figma</li><li class="pill">Python</li><li class="pill">TypeScript</li></ul>
+      </div>
+      <div class="reveal" style="--d:3">
+        <p class="label">Tools used in past roles</p>
+        <ul><li class="pill">Figma</li><li class="pill">Canva</li><li class="pill">Adobe Premiere Pro</li></ul>
+      </div>
+      <div class="reveal" style="--d:4">
+        <p class="label">Learning</p>
+        <ul><li class="pill">Data</li><li class="pill">AI</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" aria-labelledby="contact-h">
+    <div class="head reveal">
+      <div class="head-l">
+        <p class="eyebrow">04</p>
+        <h2 id="contact-h">Contact</h2>
+      </div>
+    </div>
+    <div class="contact-box reveal">
+      <p class="contact-big">The best way to reach me for now is LinkedIn.</p>
+      <p>
+        <a class="btn primary" href="https://www.linkedin.com/in/alifihsan7/" rel="noopener" target="_blank">
+          LinkedIn: alifihsan7 <span class="arr" aria-hidden="true">↗</span>
+        </a>
+      </p>
+      <p class="todo">Email is not available yet.</p>
+    </div>
+  </section>
+</Base>

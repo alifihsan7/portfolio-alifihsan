@@ -1,0 +1,70 @@
+---
+import { experience, projects, NA } from "../data";
+
+const { monthsTotal, orgs } = experience;
+const pct = (n: number) => `${((n / monthsTotal) * 100).toFixed(3)}%`;
+const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+const ticks: [string, number][] = [["2024", 0], ["2025", 12], ["2026", 24]];
+---
+
+<div class="chart" aria-hidden="true">
+  <div class="chart-in">
+    <div class="axis">
+      <span></span>
+      <div class="axis-track">
+        {ticks.map(([y, i]) => <span class="tick" style={`left:${pct(i)}`}>{y}</span>)}
+      </div>
+    </div>
+    {orgs.map((o, oi) => (
+      <div class="lane" data-org={slug(o.short)}>
+        <span class="lane-name">{o.short}</span>
+        <div class="track">
+          {o.roles.map((r) => (
+            <span
+              class={`bar ${r.work ? "work" : ""}`}
+              style={`--l:${pct(r.span[0])};--w:${pct(r.span[1] - r.span[0] + 1)};--i:${oi}`}
+              title={`${r.title}, ${r.dates}`}
+            />
+          ))}
+        </div>
+      </div>
+    ))}
+    <div class="legend">
+      <span><i style="background:var(--accent)"></i>Lab and internships</span>
+      <span><i style="background:var(--bar-org)"></i>Organizations and events</span>
+    </div>
+  </div>
+</div>
+
+<div>
+  {orgs.map((o, oi) => (
+    <div class="org reveal" id={`org-${slug(o.short)}`} data-org={slug(o.short)} style={`--d:${oi % 2}`}>
+      <div>
+        <h3 class="org-name">{o.name}</h3>
+        <div class="org-note">{o.note}</div>
+      </div>
+      <div class="roles">
+        {o.roles.map((r) => {
+          const proj = "project" in r && r.project ? projects.find((p) => p.id === r.project) : undefined;
+          return (
+            <div class="role">
+              <div class="role-top">
+                <h3>{r.title}</h3>
+                <span class="dates">{r.dates}</span>
+              </div>
+              <div class="tag">{r.kind}</div>
+              {r.bullets.length > 0
+                ? <ul>{r.bullets.map((b) => <li>{b}</li>)}</ul>
+                : <p class="pending">{("pending" in r && r.pending) || NA}</p>}
+              {"honor" in r && r.honor && <p class="honor">{r.honor}</p>}
+              {"used" in r && r.used && <p class="used">Tools: {r.used}</p>}
+              {proj && (
+                <p class="used"><a class="projlink" href={`/work/${proj.id}`}>View the project: {proj.name} →</a></p>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  ))}
+</div>

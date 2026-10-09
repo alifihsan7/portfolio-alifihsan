@@ -1,0 +1,118 @@
+---
+import Base from "../../layouts/Base.astro";
+import { projects, type Project } from "../../data";
+
+export function getStaticPaths() {
+  return projects.map((project, i) => ({
+    params: { id: project.id },
+    props: {
+      project,
+      prev: projects[(i - 1 + projects.length) % projects.length],
+      next: projects[(i + 1) % projects.length],
+    },
+  }));
+}
+
+interface Props {
+  project: Project;
+  prev: Project;
+  next: Project;
+}
+const { project: p, prev, next } = Astro.props;
+
+const tools = [...(p.tools ?? []), ...(p.technology ?? [])].join(", ");
+const facts = [
+  ["Role", p.role],
+  ["Year", p.year],
+  ["Team", p.team],
+  ["Platform", p.platform],
+  ["Tools", tools],
+].filter(([, v]) => v);
+const links = (p.links ?? []).filter((l) => l.public); // private links stay hidden
+const shots = (p.gallery ?? []).filter((g) => !("phone" in g && g.phone));
+const phones = (p.gallery ?? []).filter((g) => "phone" in g && g.phone);
+const stats = "stats" in p ? p.stats : [];
+const isPlain = (v: string) => /^\d+$/.test(v);
+const showPager = projects.length > 1;
+---
+
+<Base title={`${p.name} · Alif Ihsan`} description={p.lede || p.description} ogType="article">
+  <a class="back" href="/#work"><span aria-hidden="true">←</span> All work</a>
+
+  <article class="detail">
+    <header class="detail-head">
+      <div class="meta">
+        <span>{p.category.join(" / ")}</span>
+        {p.type && <span>{p.type}</span>}
+        {p.year && <span>{p.year}</span>}
+      </div>
+      <h1 class="title">{p.name}</h1>
+      <p class="lede">{p.lede || p.description}</p>
+      {links.length > 0 && (
+        <div class="cta">
+          {links.map((l) => (
+            <a class="btn primary" href={l.url} target="_blank" rel="noopener">{l.label} <span class="arr" aria-hidden="true">↗</span></a>
+          ))}
+        </div>
+      )}
+      <dl class="facts">
+        {facts.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
+      </dl>
+    </header>
+
+    {shots.length > 0 && (
+      <div class="gallery">
+        {shots.map((g, i) => (
+          <figure class="reveal" style={`--d:${i % 2}`}>
+            <button class="zoom" type="button" data-zoom data-caption={g.caption} aria-label={`Enlarge image: ${g.caption}`}>
+              <img src={g.src} alt={g.alt} loading="lazy" />
+            </button>
+            <figcaption>{g.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    )}
+
+    {phones.length > 0 && (
+      <div>
+        <p class="label">Mobile version</p>
+        <div class="phones">
+          {phones.map((g, i) => (
+            <figure class="reveal" style={`--d:${i % 3}`}>
+              <button class="zoom" type="button" data-zoom data-caption={g.caption} aria-label={`Enlarge image: ${g.caption}`}>
+                <img src={g.src} alt={g.alt} loading="lazy" />
+              </button>
+              <figcaption>{g.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    )}
+
+    {(p.sections ?? []).map((s) => (
+      <div class="prose reveal">
+        <h2>{s.h}</h2>
+        <div>{s.p.map((t) => <p>{t}</p>)}</div>
+      </div>
+    ))}
+
+    {stats.length > 0 && (
+      <div class="stats">
+        {stats.map((s, i) => (
+          <div class="reveal" style={`--d:${i}`}>
+            <div class="stat-k">{s.k}</div>
+            <div class="stat-v" data-count={isPlain(s.v) ? s.v : undefined}>{s.v}</div>
+            <div class="stat-n">{s.n}</div>
+          </div>
+        ))}
+      </div>
+    )}
+
+    {showPager && (
+      <nav class="pager" aria-label="More projects">
+        <a href={`/work/${prev.id}`}><span class="dir">← Previous</span><span class="nm">{prev.name}</span></a>
+        <a class="next" href={`/work/${next.id}`}><span class="dir">Next →</span><span class="nm">{next.name}</span></a>
+      </nav>
+    )}
+  </article>
+</Base>
