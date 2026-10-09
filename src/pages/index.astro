@@ -19,6 +19,11 @@ const slides = projects.filter((p) => p.assets?.[0]);
   <div class="hero" id="home" data-hero>
     <div class="hero-left">
       <p class="eyebrow">Portfolio · 2026</p>
+      <p class="hello">
+        <span class="vh">Hi, I’m</span>
+        <span class="hello-t" aria-hidden="true">{[..."Hi, I’m"].map((c, i) => <span class="hc" style={"--i:" + i}>{c}</span>)}</span>
+        <span class="wave" aria-hidden="true">👋</span>
+      </p>
       <div class="name">
         <h1 aria-label="Alif Ihsan">
           {name.map((w, wi) => (

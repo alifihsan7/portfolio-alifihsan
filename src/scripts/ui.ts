@@ -63,6 +63,34 @@ if (spot && finePointer && !reduced) {
 }
 
 
+/* Hero: the stack tilts in 3D toward the pointer, and the buttons lean toward it */
+const heroEl = $<HTMLElement>("[data-hero]");
+const deckEl = $<HTMLElement>(".deck");
+if (heroEl && finePointer && !reduced) {
+  if (deckEl) {
+    heroEl.addEventListener("pointermove", (e) => {
+      const r = heroEl.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      deckEl.style.setProperty("--ry", (x * 14).toFixed(2) + "deg");
+      deckEl.style.setProperty("--rx", (-y * 10).toFixed(2) + "deg");
+    });
+    heroEl.addEventListener("pointerleave", () => {
+      deckEl.style.setProperty("--ry", "0deg");
+      deckEl.style.setProperty("--rx", "0deg");
+    });
+  }
+  $$<HTMLElement>(".hero .btn").forEach((btn) => {
+    btn.addEventListener("pointermove", (e) => {
+      const r = btn.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width / 2) / r.width;
+      const y = (e.clientY - r.top - r.height / 2) / r.height;
+      btn.style.transform = "translate(" + (x * 12).toFixed(1) + "px, " + (y * 9).toFixed(1) + "px)";
+    });
+    btn.addEventListener("pointerleave", () => { btn.style.transform = ""; });
+  });
+}
+
 /* Work rows: a preview follows the pointer */
 const peek = $<HTMLElement>(".peek");
 if (peek && finePointer && !reduced && matchMedia("(min-width: 48rem)").matches) {
