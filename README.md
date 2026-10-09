@@ -18,7 +18,7 @@ Member of the Advanced Software Engineering Laboratory (ASE Lab), Telkom Univers
 - **LaundryApp** (2024): a mobile app interface for booking laundry services. Personal design practice.
 - **MoneyTime** (2025): a web app that combines money tracking and schedules. Academic group project.
 - **WealthWise** (2026): a personal finance web app with AI features (receipt scanner, chatbot, financial health score). Academic group project.
-- **CALIBER 2026 Dashboard** (2026): an early prototype of a manufacturing dashboard for a competition, UI/UX design only. Not submitted to the competition.
+- **CALIBER 2026 Dashboard** (2026): an early prototype of a manufacturing dashboard for a competition, UI/UX design and front end. Not submitted to the competition.
 
 ## Skills
 

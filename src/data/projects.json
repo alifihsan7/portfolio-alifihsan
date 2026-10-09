@@ -591,11 +591,12 @@
     "name": "CALIBER 2026 Dashboard",
     "year": 2026,
     "category": [
-      "UI/UX"
+      "UI/UX",
+      "Web Development"
     ],
     "type": "Competition prototype",
     "description": "An early prototype of a unified dashboard for a manufacturing competition: losses, equipment health and an action queue on four pages. Not submitted.",
-    "role": "UI/UX Designer",
+    "role": "UI/UX Designer and Front-end Developer",
     "team": "Team of 3 students",
     "platform": "Web",
     "tools": [],
@@ -607,7 +608,7 @@
     "problem": "",
     "goal": "",
     "process": "",
-    "myContribution": "The UI/UX design of the dashboard: the four pages, the visual style and the charts. The data preparation and the analysis logic were done by my teammates.",
+    "myContribution": "The UI/UX design of the dashboard and its front end in Streamlit and Plotly: the four pages, the visual style and the charts. The data preparation and the analysis logic were done by my teammates.",
     "result": "",
     "reflection": "",
     "assets": [
@@ -663,7 +664,7 @@
       {
         "h": "My contribution",
         "p": [
-          "I designed the dashboard: the four pages, the visual style and the charts. The data preparation and the analysis logic were done by my teammates."
+          "I designed the dashboard and built its front end in Streamlit and Plotly: the four pages, the visual style and the charts. The data preparation and the analysis logic were done by my teammates."
         ]
       },
       {
