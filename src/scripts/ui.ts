@@ -76,48 +76,6 @@ measure();
 addEventListener("resize", measure);
 document.fonts?.ready.then(measure);
 
-/* Hero canvas: two named cursors. They idle around the frame and chase the pointer when it is over the hero. */
-const cursors = $$<HTMLElement>("[data-cursor]");
-if (hero && frame && cursors.length) {
-  const state = cursors.map((el) => ({ el, x: 0, y: 0, lag: el.dataset.cursor === "d" ? 0.13 : 0.06, off: el.dataset.cursor === "d" ? [6, 6] : [-70, 46] }));
-  let pointer: { x: number; y: number } | null = null;
-  let raf = 0;
-  let visible = true;
-
-  const idle = (kind: string | undefined, t: number, fr: DOMRect, hr: DOMRect) => {
-    const l = fr.left - hr.left, tp = fr.top - hr.top;
-    if (kind === "d") return [l + fr.width - 36 + Math.sin(t / 1400) * 26, tp + fr.height * 0.32 + Math.cos(t / 1100) * 18];
-    return [l + fr.width * 0.42 + Math.sin(t / 1700) * 44, tp + fr.height - 34 + Math.cos(t / 900) * 10];
-  };
-  const step = (t: number, snap = false) => {
-    const hr = hero.getBoundingClientRect();
-    const fr = frame.getBoundingClientRect();
-    for (const s of state) {
-      const [tx, ty] = pointer ? [pointer.x + s.off[0], pointer.y + s.off[1]] : idle(s.el.dataset.cursor, t, fr, hr);
-      s.x = snap ? tx : s.x + (tx - s.x) * s.lag;
-      s.y = snap ? ty : s.y + (ty - s.y) * s.lag;
-      s.el.style.transform = `translate3d(${s.x.toFixed(1)}px, ${s.y.toFixed(1)}px, 0)`;
-    }
-  };
-  const loop = (t: number) => { step(t); raf = visible && !document.hidden ? requestAnimationFrame(loop) : 0; };
-  const start = () => { if (!raf && !reduced) raf = requestAnimationFrame(loop); };
-
-  step(0, true);
-  if (!reduced) {
-    start();
-    new IntersectionObserver((e) => { visible = e[0].isIntersecting; if (visible) start(); }).observe(hero);
-    document.addEventListener("visibilitychange", start);
-    if (finePointer) {
-      hero.addEventListener("pointermove", (e) => {
-        const hr = hero.getBoundingClientRect();
-        pointer = { x: e.clientX - hr.left, y: e.clientY - hr.top };
-      });
-      hero.addEventListener("pointerleave", () => { pointer = null; });
-    }
-  }
-  addEventListener("resize", () => step(0, true));
-}
-
 /* Hero tabs: the same facts as design or as code */
 const tabs = $$<HTMLButtonElement>(".tab");
 const selectTab = (tab: HTMLButtonElement) => {

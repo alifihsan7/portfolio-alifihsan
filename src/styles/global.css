@@ -113,7 +113,7 @@ a { color: inherit; }
 .btn:hover .arr { transform: translate(3px, -3px); }
 .cta { display: flex; flex-wrap: wrap; gap: .75rem; }
 
-/* Hero: a design canvas. The name sits in a selection frame, two named cursors drift around it. */
+/* Hero: a design canvas. The name sits in a selection frame. */
 .hero { position: relative; padding-block: clamp(3rem, 8vw, 6rem) clamp(2.5rem, 6vw, 4rem); display: grid; gap: 2rem; }
 .hero-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 1.5rem; }
 .frame { position: relative; width: fit-content; max-width: 100%; padding: clamp(.6rem, 1.6vw, 1.2rem) clamp(.8rem, 2vw, 1.6rem); margin-left: -.4rem;
@@ -129,11 +129,6 @@ h1 .word { display: inline-block; white-space: nowrap; margin-right: .2em; }
 h1 .word:last-child { margin-right: 0; }
 h1 .ch { display: inline-block; transition: transform .45s var(--ease), color .3s; will-change: transform; }
 h1 .ch:hover { transform: translateY(-.06em) rotate(-3deg); color: var(--accent); }
-.cur { position: absolute; left: 0; top: 0; z-index: 3; pointer-events: none; display: flex; align-items: flex-start; gap: 0; will-change: transform; }
-.cur svg { width: 1.3rem; height: 1.3rem; flex: none; filter: drop-shadow(0 2px 4px rgba(0,0,0,.35)); }
-.cur span { margin: 1rem 0 0 -.15rem; font: 500 .72rem var(--font-mono); padding: .18rem .55rem; border-radius: 99px 99px 99px 3px; color: #fff; white-space: nowrap; }
-.cur-d { color: var(--sel); } .cur-d span { background: var(--sel); }
-.cur-c { color: var(--accent); } .cur-c span { background: var(--accent); color: var(--accent-ink); }
 .hero-role { font: 500 clamp(.95rem, 2vw, 1.15rem) var(--font-mono); color: var(--muted); min-height: 1.6em; margin: 1.2rem 0 0; }
 .hero-role b { color: var(--accent); font-weight: 500; }
 .hero-role .caret { display: inline-block; width: .55ch; height: 1.1em; background: var(--accent); vertical-align: -.18em; margin-left: .15ch; animation: blink 1s steps(1) infinite; }
