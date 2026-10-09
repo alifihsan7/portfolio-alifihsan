@@ -63,27 +63,6 @@ if (spot && finePointer && !reduced) {
 }
 
 
-/* Hero tabs: the same facts as design or as code */
-const tabs = $$<HTMLButtonElement>(".tab");
-const selectTab = (tab: HTMLButtonElement) => {
-  tabs.forEach((t) => {
-    const on = t === tab;
-    t.setAttribute("aria-selected", String(on));
-    t.tabIndex = on ? 0 : -1;
-    const panel = document.getElementById(t.getAttribute("aria-controls") || "");
-    if (panel) panel.hidden = !on;
-  });
-};
-tabs.forEach((tab, i) => {
-  tab.addEventListener("click", () => selectTab(tab));
-  tab.addEventListener("keydown", (e) => {
-    if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
-    const next = tabs[(i + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length];
-    selectTab(next);
-    next.focus();
-  });
-});
-
 /* Work rows: a preview follows the pointer */
 const peek = $<HTMLElement>(".peek");
 if (peek && finePointer && !reduced && matchMedia("(min-width: 48rem)").matches) {

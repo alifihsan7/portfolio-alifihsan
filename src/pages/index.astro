@@ -38,29 +38,7 @@ const slides = projects.filter((p) => p.assets?.[0]);
       </div>
     </div>
 
-    <aside class="hero-right" aria-label="About me">
-      <div class="tabs" role="tablist" aria-label="Show profile as">
-        <button class="tab" role="tab" id="tab-design" aria-selected="true" aria-controls="panel-design" type="button">Design</button>
-        <button class="tab" role="tab" id="tab-code" aria-selected="false" aria-controls="panel-code" type="button" tabindex="-1">Code</button>
-      </div>
-
-      <div class="panel" id="panel-design" role="tabpanel" aria-labelledby="tab-design">
-        <dl class="facts">
-          <div><dt>Education</dt><dd>S1 Informatics, Telkom University, class of 2023</dd></div>
-          <div><dt>Focus</dt><dd>UI/UX design, software development</dd></div>
-          <div><dt>Learning</dt><dd>Data and AI</dd></div>
-          <div><dt>Currently</dt><dd>Member, Advanced Software Engineering Laboratory</dd></div>
-        </dl>
-      </div>
-      <div class="panel" id="panel-code" role="tabpanel" aria-labelledby="tab-code" hidden>
-        <pre class="code" tabindex="0"><code><span class="k">const</span> alif = {"{"}
-  <span class="p">education</span>: <span class="s">"S1 Informatics, Telkom University, class of 2023"</span>,
-  <span class="p">focus</span>: [<span class="s">"UI/UX design"</span>, <span class="s">"Software development"</span>],
-  <span class="p">learning</span>: [<span class="s">"Data"</span>, <span class="s">"AI"</span>],
-  <span class="p">currently</span>: <span class="s">"Member, Advanced Software Engineering Laboratory"</span>,
-{"}"};</code></pre>
-      </div>
-
+    <aside class="hero-right" aria-label="Selected projects">
       {slides.length > 0 && (
         <div class="showcase" data-showcase aria-label="Selected projects">
           <div class="deck">
@@ -84,6 +62,13 @@ const slides = projects.filter((p) => p.assets?.[0]);
         </div>
       )}
     </aside>
+
+    <dl class="facts">
+      <div><dt>Education</dt><dd>S1 Informatics, Telkom University, class of 2023</dd></div>
+      <div><dt>Focus</dt><dd>UI/UX design, software development</dd></div>
+      <div><dt>Learning</dt><dd>Data and AI</dd></div>
+      <div><dt>Currently</dt><dd>Member, Advanced Software Engineering Laboratory</dd></div>
+    </dl>
   </div>
 
   <section id="work" aria-labelledby="work-h">
