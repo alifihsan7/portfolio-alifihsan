@@ -616,7 +616,7 @@
     "links": [],
     "format": "PROJECT SHOWCASE",
     "status": "PUBLISHED",
-    "lede": "An early prototype of a dashboard for a manufacturing competition, with the key number shown first: how many weeks before a failure the first warning appears. The team did not submit it, because we missed the deadline.",
+    "lede": "An early prototype of a dashboard for a manufacturing competition, with the key number shown first: how many weeks before a failure the first warning appears. It was not submitted to the competition.",
     "gallery": [
       {
         "src": "/img/caliber-executive.webp",
@@ -669,7 +669,7 @@
       {
         "h": "Status",
         "p": [
-          "This stayed an early prototype. The team missed the submission deadline of 4 October 2026, so it was never submitted or judged, and it was not developed further.",
+          "This stayed an early prototype. It was not submitted to the competition, so it was never judged, and it was not developed further.",
           "The competition data belongs to the organiser, so the screenshots use anonymised sample data with generic equipment and plant names. The banner at the top of each page says so."
         ]
       }
@@ -683,7 +683,7 @@
       {
         "k": "Status",
         "v": "Not submitted",
-        "n": "the deadline was missed"
+        "n": "an early prototype, not developed further"
       }
     ]
   }
