@@ -20,6 +20,7 @@ const meta = [p.category.join(" / "), p.role || NA, p.type].filter(Boolean);
 >
   <span class="r-num">{String(index + 1).padStart(2, "0")}</span>
   <span class="r-title">{p.name}</span>
+  {thumb && <span class="r-mini" aria-hidden="true"><img src={thumb} alt="" loading="lazy" width="1280" height="800" /></span>}
   <span class="r-side">
     <span class="r-year">{p.year || ""}</span>
     <span class="r-arr" aria-hidden="true">↗</span>

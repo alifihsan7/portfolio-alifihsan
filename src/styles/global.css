@@ -168,7 +168,12 @@ h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; let
 .tech { font: 400 .8rem var(--font-mono); color: var(--accent); }
 .r-thumb { display: none; margin-top: .75rem; aspect-ratio: 16 / 10; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: var(--bg-raised); }
 .r-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.r-mini { display: none; }
 @media (hover: hover) and (pointer: fine) and (min-width: 48rem) {
+  .row { grid-template-columns: 3.2rem minmax(0, 1fr) auto auto; }
+  .r-mini { display: block; width: 8rem; aspect-ratio: 16 / 10; align-self: center; border-radius: 8px; overflow: hidden; border: 1px solid var(--line); background: var(--bg-raised); transition: opacity .3s var(--ease), transform .5s var(--ease); }
+  .r-mini img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .row:hover .r-mini { opacity: 0; transform: scale(.82) translateX(-10px); }
   .rows:has(.row:hover) .row:not(:hover) { opacity: .35; }
   .row:hover { padding-left: 1rem; }
   .row:hover .r-title { transform: translateX(.4rem); color: var(--accent); }
