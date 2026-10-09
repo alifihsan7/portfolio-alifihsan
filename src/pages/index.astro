@@ -17,15 +17,8 @@ const slides = projects.filter((p) => p.assets?.[0]);
 
 <Base>
   <div class="hero" id="home" data-hero>
-    <div class="hero-bar">
+    <div class="hero-left">
       <p class="eyebrow">Portfolio · 2026</p>
-      <div class="tabs" role="tablist" aria-label="Show profile as">
-        <button class="tab" role="tab" id="tab-design" aria-selected="true" aria-controls="panel-design" type="button">Design</button>
-        <button class="tab" role="tab" id="tab-code" aria-selected="false" aria-controls="panel-code" type="button" tabindex="-1">Code</button>
-      </div>
-    </div>
-
-    <div>
       <div class="name">
         <h1 aria-label="Alif Ihsan">
           {name.map((w, wi) => (
@@ -36,17 +29,36 @@ const slides = projects.filter((p) => p.assets?.[0]);
       <p class="hero-role" data-typed="UI/UX design|Software development|Learning data and AI" aria-hidden="true">
         <b>&gt;</b> <span class="t">UI/UX design</span><span class="caret"></span>
       </p>
+      <p class="lede">
+        Informatics student at Telkom University. I design interfaces in Figma and build software in TypeScript and Python. Right now I am learning data and AI.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="#work">View work <span class="arr" aria-hidden="true">↓</span></a>
+        <a class="btn" href="#experience">See experience</a>
+      </div>
     </div>
 
-    <div class="hero-main">
-      <div class="hero-copy">
-        <p class="lede">
-          Informatics student at Telkom University. I design interfaces in Figma and build software in TypeScript and Python. Right now I am learning data and AI.
-        </p>
-        <div class="cta">
-          <a class="btn primary" href="#work">View work <span class="arr" aria-hidden="true">↓</span></a>
-          <a class="btn" href="#experience">See experience</a>
-        </div>
+    <aside class="hero-right" aria-label="About me">
+      <div class="tabs" role="tablist" aria-label="Show profile as">
+        <button class="tab" role="tab" id="tab-design" aria-selected="true" aria-controls="panel-design" type="button">Design</button>
+        <button class="tab" role="tab" id="tab-code" aria-selected="false" aria-controls="panel-code" type="button" tabindex="-1">Code</button>
+      </div>
+
+      <div class="panel" id="panel-design" role="tabpanel" aria-labelledby="tab-design">
+        <dl class="facts">
+          <div><dt>Education</dt><dd>S1 Informatics, Telkom University, class of 2023</dd></div>
+          <div><dt>Focus</dt><dd>UI/UX design, software development</dd></div>
+          <div><dt>Learning</dt><dd>Data and AI</dd></div>
+          <div><dt>Currently</dt><dd>Member, Advanced Software Engineering Laboratory</dd></div>
+        </dl>
+      </div>
+      <div class="panel" id="panel-code" role="tabpanel" aria-labelledby="tab-code" hidden>
+        <pre class="code" tabindex="0"><code><span class="k">const</span> alif = {"{"}
+  <span class="p">education</span>: <span class="s">"S1 Informatics, Telkom University, class of 2023"</span>,
+  <span class="p">focus</span>: [<span class="s">"UI/UX design"</span>, <span class="s">"Software development"</span>],
+  <span class="p">learning</span>: [<span class="s">"Data"</span>, <span class="s">"AI"</span>],
+  <span class="p">currently</span>: <span class="s">"Member, Advanced Software Engineering Laboratory"</span>,
+{"}"};</code></pre>
       </div>
 
       {slides.length > 0 && (
@@ -71,25 +83,7 @@ const slides = projects.filter((p) => p.assets?.[0]);
           </div>
         </div>
       )}
-    </div>
-
-    <div class="panel" id="panel-design" role="tabpanel" aria-labelledby="tab-design">
-      <dl class="facts">
-        <div><dt>Education</dt><dd>S1 Informatics, Telkom University, class of 2023</dd></div>
-        <div><dt>Focus</dt><dd>UI/UX design, software development</dd></div>
-        <div><dt>Learning</dt><dd>Data and AI</dd></div>
-        <div><dt>Currently</dt><dd>Member, Advanced Software Engineering Laboratory</dd></div>
-      </dl>
-    </div>
-    <div class="panel" id="panel-code" role="tabpanel" aria-labelledby="tab-code" hidden>
-      <pre class="code" tabindex="0"><code><span class="k">const</span> alif = {"{"}
-  <span class="p">education</span>: <span class="s">"S1 Informatics, Telkom University, class of 2023"</span>,
-  <span class="p">focus</span>: [<span class="s">"UI/UX design"</span>, <span class="s">"Software development"</span>],
-  <span class="p">learning</span>: [<span class="s">"Data"</span>, <span class="s">"AI"</span>],
-  <span class="p">currently</span>: <span class="s">"Member, Advanced Software Engineering Laboratory"</span>,
-{"}"};</code></pre>
-    </div>
-
+    </aside>
   </div>
 
   <section id="work" aria-labelledby="work-h">
