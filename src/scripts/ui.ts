@@ -164,7 +164,7 @@ if (location.pathname === "/" && sections.length) {
 }
 
 /* Work filters (rendered only when there are enough projects) */
-const chips = $<HTMLButtonElement>(".chip[data-c]");
+const chips = $$<HTMLButtonElement>(".chip[data-c]");
 chips.forEach((chip) => chip.addEventListener("click", () => {
   chips.forEach((c) => c.setAttribute("aria-pressed", String(c === chip)));
   const cat = chip.dataset.c;
@@ -185,14 +185,14 @@ $$<HTMLElement>(".lane, .org").forEach((el) => {
   el.addEventListener("focusin", () => setOrg(id, true));
   el.addEventListener("focusout", () => setOrg(id, false));
 });
-$<HTMLElement>(".lane").forEach((lane) => lane.addEventListener("click", () => {
+$$<HTMLElement>(".lane").forEach((lane) => lane.addEventListener("click", () => {
   const org = document.getElementById("org-" + lane.dataset.org);
   if (org instanceof HTMLDetailsElement) org.open = true;
   org?.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "center" });
 }));
 
 /* Experience: expand or collapse every organization */
-const orgs = $<HTMLDetailsElement>("details.org");
+const orgs = $$<HTMLDetailsElement>("details.org");
 const allBtn = $<HTMLButtonElement>("[data-org-all]");
 const syncAll = () => {
   if (!allBtn) return;
