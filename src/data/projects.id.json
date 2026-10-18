@@ -1,0 +1,184 @@
+{
+  "digi-money-manager": {
+    "description": "Sistem keuangan proyek berbasis web yang memusatkan reimbursement dan catatan keuangan proyek untuk PT Metanouva Informatika.",
+    "role": "UI/UX Designer dan Programmer",
+    "team": "Tim 7 mahasiswa, Rapid Application Development (RAD)",
+    "platform": "Web",
+    "problem": "Reimbursement dan keuangan proyek berjalan lewat pesan WhatsApp dan spreadsheet: data tersebar, status persetujuan sulit dilacak, pencatatan manual lambat, dan laporan memakan waktu.",
+    "goal": "Satu sistem yang mencatat pengajuan, persetujuan, dan pencairan, dengan alur persetujuan yang jelas untuk setiap peran.",
+    "myContribution": "Mendesain semua layar di Figma sendiri. Membangun modul front-end dan endpoint pendukung bersama anggota tim lain. Memperbaiki temuan QA di modul saya dan menulis buku panduan pengguna bersama tim.",
+    "result": "Dipakai di perusahaan.",
+    "lede": "Sistem keuangan yang menggantikan reimbursement lewat WhatsApp dan spreadsheet dengan satu alur persetujuan yang terlacak untuk lima peran pengguna. Saya mendesain setiap layar di Figma dan membangun sebagian front end.",
+    "gallery": [
+      { "alt": "Layar masuk dengan panel hijau berisi tiga fitur di kiri dan formulir email dan kata sandi di kanan.", "caption": "Masuk: panel kiri memperkenalkan tiga gagasan, kuitansi yang diisi AI, jurnal debit dan kredit otomatis, dan anggaran real-time." },
+      { "alt": "Layar karyawan untuk mengajukan reimbursement: bilah kemajuan empat langkah dan area unggah foto kuitansi.", "caption": "Karyawan: mengajukan reimbursement dengan mengunggah kuitansi. Empat langkah: unggah, AI membaca data, tinjau dan kirim, terkirim." },
+      { "alt": "Panel detail riwayat pengajuan yang menampilkan status, jumlah, level pos anggaran, status anti-fraud, dan linimasa persetujuan.", "caption": "Karyawan: detail pengajuan dengan pos anggaran (Main, Sub, Keterangan), status anti-fraud, dan linimasa persetujuan." },
+      { "alt": "Antrean persetujuan project manager dengan daftar permintaan dan panel detail yang menampilkan realisasi anggaran serta tombol Reject dan Forward.", "caption": "Project manager: antrean persetujuan dengan realisasi anggaran di samping setiap permintaan, dan aksi untuk menolak atau meneruskan ke finance." },
+      { "alt": "Antrean pencairan finance dengan panel detail dan pratinjau jurnal akuntansi yang dibuat otomatis.", "caption": "Finance: antrean pencairan dengan pratinjau jurnal debit dan kredit yang dibuat otomatis." },
+      { "alt": "Dashboard eksekutif dengan kartu ringkasan, diagram batang arus kas 12 bulan, ringkasan pengajuan dan cicilan, serta tabel proyek aktif.", "caption": "Direktur: dashboard eksekutif dengan total, diagram arus kas, ringkasan pengajuan dan cicilan, serta proyek aktif." },
+      { "alt": "Layar manajemen proyek dengan kartu proyek yang disaring berdasarkan status: perencanaan, aktif, selesai, dibatalkan.", "caption": "Direktur: manajemen proyek dengan pencarian, filter status, dan satu kartu per proyek." }
+    ],
+    "sections": [
+      { "h": "Gambaran umum", "p": ["Digi Money Manager adalah sistem keuangan proyek berbasis web untuk PT Metanouva Informatika yang memusatkan reimbursement dan catatan keuangan proyek. Sebelumnya, reimbursement berjalan lewat pesan WhatsApp dan spreadsheet, sehingga data tersebar, status persetujuan sulit dilacak, serta pencatatan dan pelaporan lambat.", "Sistem ini melayani lima peran: Superadmin, Direktur, Project Manager, Finance, dan Karyawan. Karyawan mengajukan reimbursement, project manager menyetujuinya, dan finance mencairkannya. Direktur menyetujui permintaan pos anggaran dari project manager, dan superadmin mengelola akun serta Chart of Accounts. Sistem ini juga membaca kuitansi dengan vision language model, mengekspor ke Excel, dan menyertakan Smart Chat, asisten AI yang menjawab pertanyaan keuangan sesuai peran yang sedang masuk."] },
+      { "h": "Konteks", "p": ["Aplikasi ini bermula dari mata kuliah Proyek Komputasi bersama mitra yang sama. Saya melanjutkannya selama magang dari Juni sampai Agustus 2026, dalam tim beranggotakan tujuh orang dengan metode Rapid Application Development (RAD)."] },
+      { "h": "Alur persetujuan", "p": ["Setiap reimbursement ditampilkan kepada pengguna dalam empat langkah: diajukan, divalidasi project manager, diverifikasi finance, dan dicairkan. Layar-layar di atas mengikuti jalur itu, dan layar finance menampilkan pratinjau jurnal akuntansi yang dibuat saat permintaan dicairkan."] },
+      { "h": "Kontribusi saya", "p": ["Saya mendesain semua layar di Figma sendiri, untuk kelima peran. Saya juga membangun modul front-end dan endpoint pendukung bersama anggota tim lain, memperbaiki temuan QA di modul saya, dan menulis buku panduan pengguna bersama tim."] },
+      { "h": "Status", "p": ["Aplikasi ini dipakai di perusahaan."] }
+    ]
+  },
+
+  "cyclefy": {
+    "description": "Platform web yang mendukung ekonomi sirkular di kalangan mahasiswa lewat layanan donasi, barter, peminjaman, daur ulang, dan perbaikan.",
+    "role": "UI/UX Designer",
+    "team": "Byte4Aura, 5 anggota (Backend, System Analyst dan Project Manager, UI/UX, Frontend, QA)",
+    "platform": "Web",
+    "goal": "Memudahkan berbagi dan bertukar barang antarpengguna; mengurangi sampah lewat daur ulang dan perbaikan; membangun komunitas yang peduli lingkungan; menyediakan platform aman untuk transaksi non-uang.",
+    "process": "Design Thinking. Survei Google Form (10 responden), tiga persona, user flow Sign Up dan Sign In, wireframe, desain UI, prototipe, usability test dengan SUS.",
+    "myContribution": "Seluruh pekerjaan UI/UX: survei, persona, user flow, wireframe, desain UI, prototipe, usability testing. Serah terima desain ke front-end developer.",
+    "result": "Rata-rata SUS 83 dari 10 mahasiswa Telkom University (8 laki-laki, 2 perempuan, usia 19 sampai 21), dinilai Excellent, Grade A dalam dokumentasi proyek. Meraih Best Project di ASE Lab Internship Program.",
+    "lede": "Platform web untuk mendonasikan, membarter, meminjam, mendaur ulang, dan memperbaiki barang di lingkungan kampus, dirancang dari awal sampai akhir oleh satu UI/UX designer dalam tim beranggotakan lima orang.",
+    "links": [
+      { "label": "Kunjungi situsnya" },
+      { "label": "File desain Figma" }
+    ],
+    "gallery": [
+      { "alt": "Halaman landing Cyclefy untuk pengguna yang sudah masuk, dengan banner hero, kartu Key Features, Latest News, serta bagian About dan Contact.", "caption": "Halaman landing untuk pengguna yang sudah masuk: hero, empat kelompok fitur, berita, tentang, dan kontak." },
+      { "alt": "Layar Sign Up dengan kolom username, email, kata sandi, dan konfirmasi kata sandi, serta pilihan daftar lewat Google, Facebook, dan X.", "caption": "Sign Up dengan username, email, dan kata sandi, atau lewat Google, Facebook, atau X." },
+      { "alt": "Halaman Donate Your Item dengan panduan tiga langkah dan formulir donasi.", "caption": "Donasi: panduan tiga langkah di samping formulir (nama, deskripsi, kategori, alamat, nomor kontak, foto)." },
+      { "alt": "Halaman Search for Items to Barter dengan pencarian, filter, pengurutan, dan kisi kartu barang.", "caption": "Barter: pencarian, filter, dan pengurutan atas kartu barang yang menampilkan jarak dan pemilik." },
+      { "alt": "Halaman peminjaman dengan tiga pilihan: memasang barang, mencari barang untuk dipinjam, melihat riwayat peminjaman.", "caption": "Peminjaman: pasang barang, cari barang, atau buka riwayat peminjaman." },
+      { "alt": "Halaman Find a Recycling Location dengan pencarian, filter, dan daftar lokasi beserta jaraknya.", "caption": "Daur ulang: daftar lokasi daur ulang dengan pencarian, filter, dan jarak." },
+      { "alt": "Halaman riwayat yang menampilkan permintaan daur ulang dengan linimasa status: Submitted, Confirmed, Completed.", "caption": "Riwayat: setiap permintaan punya linimasa status, di sini Submitted, Confirmed, Completed." }
+    ],
+    "sections": [
+      { "h": "Gambaran umum", "p": ["Cyclefy mendukung ekonomi sirkular di kalangan mahasiswa lewat lima layanan: donasi, barter, peminjaman, daur ulang, dan perbaikan. Platform ini dibangun oleh tim Byte4Aura di Advanced Software Engineering Laboratory, Telkom University, sebagai bagian dari ASE Lab Internship Program.", "Sistem ini bertujuan memudahkan berbagi dan bertukar barang, mengurangi sampah lewat daur ulang dan perbaikan, membangun komunitas yang peduli lingkungan, dan menyediakan tempat yang aman untuk transaksi non-uang."] },
+      { "h": "Riset", "p": ["Saya menjalankan survei Google Form dengan 10 responden dan menulis tiga persona darinya: M. Sholeh, yang ingin mendonasikan barang; Bagus Hardianto, yang butuh layanan perbaikan; dan Imanuel Christian S., yang ingin membarter dan meminjam.", "Kesulitan mereka membentuk layanan yang ada. Pendonor tidak tahu ke mana atau bagaimana memberikan barang. Orang dengan barang rusak tidak tahu cara memperbaikinya atau ke mana membawanya. Mahasiswa tidak punya tempat bersama untuk bertukar atau meminjamkan barang."] },
+      { "h": "Proses", "p": ["Tim mengikuti Design Thinking. Saya memetakan alur Sign Up dan Sign In lebih dulu: tamu melihat halaman utama, menekan Get Started, lalu mendaftar manual dengan verifikasi email atau dengan akun sosial. Dari situ saya lanjut ke wireframe, layar high-fidelity, dan prototipe interaktif."] },
+      { "h": "Usability test", "p": ["Saya menguji prototipe dengan 10 mahasiswa aktif Telkom University berusia 19 sampai 21 tahun (8 laki-laki, 2 perempuan) memakai System Usability Scale. Setiap responden sudah mencoba prototipe sebelumnya."] },
+      { "h": "Kontribusi saya", "p": ["Saya mengerjakan seluruh pekerjaan UI/UX: survei, persona, user flow, wireframe, desain UI, prototipe, dan usability test. Desain saya serahkan ke front-end developer. Backend, analisis sistem, front-end, dan QA dikerjakan anggota tim lain."] }
+    ],
+    "stats": [
+      { "k": "Skor SUS", "n": "10 responden, dinilai Excellent (Grade A)" },
+      { "k": "Tim", "n": "Byte4Aura, saya UI/UX designer-nya" },
+      { "k": "Penghargaan", "v": "Best Project", "n": "ASE Lab Internship Program" }
+    ]
+  },
+
+  "myuu7ikku": {
+    "description": "Antarmuka pemutar musik yang saya desain sebagai latihan mandiri, terinspirasi dari Spotify, untuk desktop dan mobile.",
+    "role": "UI Designer",
+    "team": "Individu",
+    "platform": "Desktop dan mobile",
+    "myContribution": "Seluruh desain, desktop dan mobile. Hanya desain, tanpa kode.",
+    "lede": "Antarmuka pemutar musik yang saya desain untuk latihan, terinspirasi dari Spotify. Satu layar desktop dan versi mobile.",
+    "gallery": [
+      { "alt": "Layar pemutar musik desktop bertema biru navy gelap: sidebar, banner trending, playlist, hits hari ini, serta panel now playing dan lirik.", "caption": "Desktop: sidebar untuk menu, pustaka, dan playlist; banner trending, playlist, dan hits harian; panel samping untuk lagu yang sedang diputar dan lirik." },
+      { "alt": "Layar splash mobile dengan logo MYUU7IKKU dan tombol Get Started.", "caption": "Splash" },
+      { "alt": "Layar onboarding mobile dengan ilustrasi, teks singkat, serta tombol Next dan Skip.", "caption": "Onboarding" },
+      { "alt": "Layar register mobile dengan kolom email, kata sandi, dan konfirmasi kata sandi serta kotak centang ketentuan.", "caption": "Daftar" },
+      { "alt": "Layar beranda mobile dengan tab, live now, trending, baru diputar, dan playlist.", "caption": "Beranda" },
+      { "alt": "Layar pencarian mobile dengan kartu genre dan pencarian terakhir.", "caption": "Pencarian" },
+      { "alt": "Layar pustaka mobile dengan tab dan daftar playlist berwarna.", "caption": "Pustaka" }
+    ],
+    "sections": [
+      { "h": "Tentang proyek ini", "p": ["Saya mendesain pemutar ini sebagai latihan. Tata letak desktop memakai tema biru navy gelap dengan sidebar untuk menu, pustaka, dan playlist, area utama untuk musik trending, playlist, dan hits harian, serta panel samping untuk lagu yang sedang diputar dan lirik. Versi mobile mencakup layar splash, onboarding, register, beranda, pencarian, dan pustaka.", "Merek, lagu, dan artisnya fiktif, dan fotonya adalah gambar stok."] }
+    ]
+  },
+
+  "laundryapp": {
+    "description": "Antarmuka aplikasi mobile untuk mencari dan memesan layanan laundry, dibuat sebagai latihan dan eksplorasi desain.",
+    "role": "UI Designer",
+    "team": "Individu",
+    "platform": "Mobile",
+    "myContribution": "Seluruh desain, tiga layar mobile. Hanya desain, tanpa kode.",
+    "lede": "Antarmuka aplikasi mobile untuk mencari dan memesan layanan laundry, didesain untuk latihan. Tiga layar di Figma.",
+    "gallery": [
+      { "alt": "Layar beranda mobile dengan banner sambutan, kolom pencarian, pintasan layanan, penyedia layanan terdekat, dan riwayat pesanan.", "caption": "Beranda: layanan, penyedia terdekat, riwayat pesanan" },
+      { "alt": "Daftar penyedia layanan laundry di dekat pengguna dengan rating, jarak, dan tombol View.", "caption": "Penyedia di dekat Anda" },
+      { "alt": "Halaman penyedia dengan tab dan kisi layanan seperti Wash and Iron, Express, Ironing, Standard Wash, Dry Clean, dan Self Service, serta tombol Book Service Now.", "caption": "Halaman penyedia: pilih layanan dan pesan" }
+    ],
+    "sections": [
+      { "h": "Tentang proyek ini", "p": ["Saya mendesain aplikasi ini sebagai latihan dan eksplorasi desain di Figma. Layar beranda menampilkan pintasan layanan, penyedia terdekat, dan riwayat pesanan. Layar kedua menampilkan daftar penyedia di dekat pengguna, dan halaman penyedia memungkinkan pengguna memilih layanan, seperti Wash & Iron, Express, Ironing, Standard Wash, Dry Clean, atau Self Service, lalu memesannya.", "Nama dan rating penyedia bersifat fiktif."] }
+    ]
+  },
+
+  "moneytime": {
+    "description": "Aplikasi web yang menyatukan pencatatan uang dan pengelolaan jadwal dalam satu dashboard, dibuat sebagai proyek kelompok untuk mata kuliah implementasi dan pengujian perangkat lunak.",
+    "role": "Desainer dan Developer",
+    "team": "Tim 5 mahasiswa",
+    "platform": "Web",
+    "myContribution": "Desain dan kode, bersama kelompok saya. Pembagian kerja yang tepat belum tersedia.",
+    "result": "Semua fitur berfungsi kecuali sinkronisasi Google Calendar, yang belum berfungsi.",
+    "lede": "Aplikasi web yang menaruh uang dan jadwal di satu dashboard. Proyek kelompok untuk mata kuliah Implementasi dan Pengujian Perangkat Lunak, tempat saya mengerjakan desain sekaligus kode.",
+    "gallery": [
+      { "alt": "Halaman dashboard dengan kartu pemasukan, pengeluaran, saldo, dan jadwal mendatang, daftar transaksi per hari, daftar jadwal, dan jendela obrolan asisten.", "caption": "Dashboard: pemasukan, pengeluaran, dan saldo bulanan, transaksi per hari, jadwal mendatang, dan obrolan MoneyTime Assistant." },
+      { "alt": "Halaman Money dengan kartu ringkasan, daftar transaksi per hari, dan diagram lingkaran pengeluaran per kategori.", "caption": "Money: transaksi per bulan dan diagram lingkaran pengeluaran per kategori." },
+      { "alt": "Halaman Time dengan penghitung jadwal mendatang, selesai, dan terlambat, serta daftar yang dikelompokkan menjadi Today dan Next 7 Days.", "caption": "Time: jadwal mendatang, selesai, dan terlambat, dikelompokkan menjadi Today, Next 7 Days, dan Later." }
+    ],
+    "sections": [
+      { "h": "Gambaran umum", "p": ["MoneyTime adalah aplikasi web yang menggabungkan pencatatan uang dan pengelolaan jadwal. Aplikasi ini punya tiga halaman utama: Dashboard yang merangkum keduanya, halaman Money untuk transaksi dan diagram pengeluaran, dan halaman Time untuk jadwal. Dashboard juga punya asisten obrolan. Kami membangunnya sebagai proyek kelompok untuk mata kuliah Implementasi dan Pengujian Perangkat Lunak."] },
+      { "h": "Tech stack", "p": ["Front end memakai HTML, CSS, dan JavaScript. Back end memakai Python (Flask), Supabase, dan Groq. Groq menjalankan obrolan MoneyTime Assistant di Dashboard."] },
+      { "h": "Kontribusi saya", "p": ["Saya mengerjakan desain sekaligus kode, dalam tim lima orang. Pembagian kerja yang tepat antaranggota tim belum tersedia."] },
+      { "h": "Status", "p": ["Semua fitur berfungsi kecuali sinkronisasi Google Calendar, yang belum berfungsi. Transaksi dan jumlah di tangkapan layar adalah data contoh."] }
+    ]
+  },
+
+  "wealthwise": {
+    "description": "Aplikasi web keuangan pribadi dengan AI: membaca kuitansi dari foto, menjawab pertanyaan tentang keuangan Anda sendiri, dan memberi skor kesehatan finansial.",
+    "role": "Desainer dan Developer",
+    "team": "Tim 6 mahasiswa",
+    "platform": "Web",
+    "myContribution": "Desain UI/UX, front end React, back end Laravel, dan fitur AI, bersama tim saya. Pembagian kerja yang tepat belum tersedia.",
+    "lede": "Aplikasi web keuangan pribadi yang mencatat rekening, transaksi, dan anggaran, lalu menambahkan AI di atasnya: membaca kuitansi dari foto, menjawab pertanyaan tentang uang Anda sendiri, dan menilai kesehatan finansial. Proyek kelompok untuk mata kuliah Aplikasi Berbasis Platform.",
+    "links": [
+      { "label": "Lihat kodenya di GitHub" }
+    ],
+    "gallery": [
+      { "alt": "Dashboard dengan kartu hijau berisi total kekayaan bersih, total pemasukan dan pengeluaran, dan diagram donat per kategori, aksi cepat untuk memindai kuitansi dan bertanya ke perencana AI, serta tabel transaksi terbaru.", "caption": "Dashboard: total kekayaan bersih, pemasukan dan pengeluaran, pengeluaran per kategori, dan transaksi terbaru." },
+      { "alt": "Halaman transaksi dengan filter rentang tanggal, rekening, dan kategori, kartu total pemasukan dan pengeluaran, serta tabel transaksi dengan tombol ubah dan hapus.", "caption": "Transaksi: saring berdasarkan tanggal, rekening, dan kategori, dengan total serta aksi ubah dan hapus." },
+      { "alt": "Halaman kategori dengan ringkasan anggaran bulanan dan kartu untuk setiap kategori pengeluaran yang menunjukkan berapa anggaran yang sudah terpakai.", "caption": "Kategori: anggaran bulanan untuk setiap kategori pengeluaran, dengan progres jumlah yang sudah terpakai." },
+      { "alt": "Halaman Smart Planning dengan cincin progres tabungan keseluruhan dan kartu untuk setiap target tabungan yang menunjukkan jumlah terkumpul, target, dan bilah progres.", "caption": "Smart Planning: target tabungan dengan jumlah terkumpul, targetnya, dan jumlah yang perlu disisihkan per periode." },
+      { "alt": "Halaman statistik dengan total pengeluaran, tabungan bersih, daftar kategori teratas, diagram donat komposisi pengeluaran, dan diagram batang aktivitas mingguan.", "caption": "Statistik: pengeluaran per kategori, kategori teratas, dan aktivitas mingguan untuk bulan ini, 3 bulan terakhir, atau tahun ini." },
+      { "alt": "Halaman Financial Health dengan pengukur skor 80 dan kartu kekayaan bersih, rasio tabungan, rasio pengeluaran, dan dana darurat.", "caption": "Financial Health: skor 0 sampai 100 dengan rasio tabungan, rasio pengeluaran, dan dana darurat." },
+      { "alt": "Halaman rekening dengan total saldo dan kartu untuk rekening tunai, bank, dan e-wallet, serta diagram sebaran aset.", "caption": "Rekening: total saldo dan setiap rekening tunai, bank, dan e-wallet." }
+    ],
+    "sections": [
+      { "h": "Gambaran umum", "p": ["WealthWise adalah aplikasi web keuangan pribadi. Aplikasi ini mencatat rekening, pemasukan, dan pengeluaran, menetapkan anggaran untuk setiap kategori, dan melacak target tabungan. Di atasnya ada AI: membaca kuitansi dari foto, menjawab pertanyaan lewat chatbot, menulis insight harian, dan memberi skor kesehatan finansial dari 0 sampai 100."] },
+      { "h": "Konteks", "p": ["Kami membangunnya sebagai proyek kelompok untuk mata kuliah Aplikasi Berbasis Platform di semester 6, dalam tim enam mahasiswa."] },
+      { "h": "Fitur AI", "p": ["Pemindai kuitansi: unggah foto kuitansi dan vision model mengisi nama toko, jumlah, dan tanggal transaksi.", "Chatbot keuangan: menjawab dari data pengguna sendiri, seperti rasio tabungan, rasio pengeluaran, berapa bulan dana darurat, dan skor kesehatan.", "Insight harian: AI melihat profil keuangan pengguna dan menyarankan rekomendasi yang diprioritaskan. Skor kesehatannya sendiri dihitung dari rasio tabungan, rasio pengeluaran, dan dana darurat."] },
+      { "h": "Tech stack", "p": ["Front end memakai React, Vite, Tailwind CSS, React Router, dan Recharts. Back end adalah REST API Laravel dengan autentikasi token (Laravel Sanctum) dan verifikasi email dengan kode enam digit. Basis datanya SQLite atau PostgreSQL. Fitur AI memanggil Groq API dengan model Llama, dan back end bisa dijalankan di Docker."] },
+      { "h": "Kontribusi saya", "p": ["Saya mengerjakan desain UI/UX, front end React, back end Laravel, dan fitur AI, bersama tim saya. Pembagian kerja yang tepat belum tersedia."] },
+      { "h": "Status", "p": ["Basis data aslinya sudah tidak aktif, jadi tangkapan layar berasal dari salinan lokal proyek. Rekening, transaksi, dan jumlah di dalamnya adalah data contoh. Fitur AI membutuhkan API key, jadi hanya dijelaskan di sini dan tidak ditampilkan."] }
+    ],
+    "stats": [
+      { "k": "Tim", "n": "mahasiswa, saya mengerjakan desain dan kode" },
+      { "k": "Fitur AI", "n": "pemindai kuitansi, chatbot, dan insight harian" }
+    ]
+  },
+
+  "caliber-dashboard": {
+    "description": "Prototipe awal dashboard terpadu untuk kompetisi manufaktur: kerugian, kesehatan peralatan, dan antrean aksi dalam empat halaman. Tidak dikirim.",
+    "role": "UI/UX Designer dan Front-end Developer",
+    "team": "Tim 3 mahasiswa",
+    "platform": "Web",
+    "myContribution": "Desain UI/UX dashboard dan front end-nya dengan Streamlit dan Plotly: empat halaman, gaya visual, dan grafik. Persiapan data dan logika analisis dikerjakan rekan satu tim.",
+    "lede": "Prototipe awal dashboard untuk kompetisi manufaktur, dengan angka kunci ditampilkan lebih dulu: berapa minggu sebelum kegagalan peringatan pertama muncul. Prototipe ini tidak dikirim ke kompetisi.",
+    "gallery": [
+      { "alt": "Halaman Executive Overview dengan empat kartu angka besar untuk total kerugian, total downtime, insiden, dan RCA terbuka, diagram batang kerugian per pabrik, dan tabel sepuluh bad actor teratas.", "caption": "Executive Overview: empat angka besar lebih dulu, lalu kerugian per pabrik dan komponen penyebab kerugian terbesar." },
+      { "alt": "Halaman Asset Health Monitoring dengan deretan tab peralatan, garis tren mingguan dengan ambang alarm dan trip putus-putus, tanda silang merah di minggu kegagalan, dan kartu besar untuk minggu alarm pertama, minggu kegagalan, waktu peringatan, dan seberapa lebih awal model mendeteksi.", "caption": "Asset Health: tren mingguan dengan garis alarm dan trip, kegagalan ditandai, dan waktu peringatan sebagai angka terbesar." },
+      { "alt": "Halaman Incident Explorer dengan tombol filter pabrik, komponen, dan mekanisme kegagalan, kotak pencarian insiden serupa, dan tabel insiden dengan skor risiko berwarna.", "caption": "Incident Explorer: filter pabrik, komponen, dan mekanisme kegagalan, tempat mencari kasus serupa di masa lalu, dan tabel dengan skor risiko berkode warna." },
+      { "alt": "Halaman Problem Tank dengan tiga kartu ringkasan dan daftar kartu aksi, masing-masing dengan blok skor risiko berwarna, tag peralatan, aksi, penanggung jawab, tanggal rencana, dan label status.", "caption": "Problem Tank: antrean aksi yang diurutkan berdasarkan skor risiko, dengan penanggung jawab, tanggal rencana, dan status setiap aksi." }
+    ],
+    "sections": [
+      { "h": "Gambaran umum", "p": ["Ini adalah prototipe awal dashboard untuk kompetisi CALIBER 2026. Idenya adalah membawa angka-angka yang biasanya tersebar di dashboard terpisah ke satu tempat: seberapa besar kerugian dan downtime, peralatan mana yang makin memburuk, insiden masa lalu mana yang mirip, dan aksi mana yang masih terbuka."] },
+      { "h": "Konteks", "p": ["CALIBER 2026 adalah kompetisi yang diselenggarakan PT Chandra Asri Pacific Tbk. Tim kami yang terdiri dari tiga mahasiswa memilih Case 2, Intelligent Manufacturing, yang meminta dashboard terpadu dengan insight AI dan aksi tindak lanjut."] },
+      { "h": "Keputusan desain", "p": ["Angka besar didahulukan. Setiap halaman dibuka dengan deretan kartu besar yang sama, sehingga jawaban utamanya terlihat tanpa menggulir atau membaca grafik.", "Di halaman Asset Health, angka terpenting adalah waktu peringatan: berapa minggu antara alarm pertama dan kegagalan. Garis alarm berwarna kuning, garis trip merah, dan tanda silang merah menandai kegagalan, sehingga ceritanya terbaca sekilas.", "Gayanya tegas dan datar, dengan garis tepi tebal, blok warna kuat, dan tata letak yang sama di setiap halaman, sehingga orang yang sudah paham satu halaman bisa membaca yang lain."] },
+      { "h": "Kontribusi saya", "p": ["Saya mendesain dashboard dan membangun front end-nya dengan Streamlit dan Plotly: empat halaman, gaya visual, dan grafik. Persiapan data dan logika analisis dikerjakan rekan satu tim."] },
+      { "h": "Status", "p": ["Ini tetap menjadi prototipe awal. Prototipe ini tidak dikirim ke kompetisi, jadi tidak pernah dinilai, dan tidak dikembangkan lebih lanjut.", "Data kompetisi milik penyelenggara, jadi tangkapan layar memakai data contoh yang dianonimkan dengan nama peralatan dan pabrik generik. Banner di bagian atas setiap halaman menyebutkannya."] }
+    ],
+    "stats": [
+      { "k": "Halaman", "n": "Executive, Asset Health, Incident Explorer, dan Problem Tank" },
+      { "k": "Status", "v": "Tidak dikirim", "n": "prototipe awal, tidak dikembangkan lebih lanjut" }
+    ]
+  }
+}

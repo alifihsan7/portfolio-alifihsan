@@ -1,7 +1,12 @@
 ---
-import { experience, projects, NA } from "../data";
+import { getExperience, getProjects } from "../data";
+import { useT, href, type Lang } from "../i18n/ui";
 
-const { monthsTotal, orgs } = experience;
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = useT(lang);
+const projects = getProjects(lang);
+const { monthsTotal, orgs } = getExperience(lang);
 const pct = (n: number) => `${((n / monthsTotal) * 100).toFixed(3)}%`;
 const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 const ticks: [string, number][] = [["2024", 0], ["2025", 12], ["2026", 24]];
@@ -30,14 +35,14 @@ const ticks: [string, number][] = [["2024", 0], ["2025", 12], ["2026", 24]];
       </div>
     ))}
     <div class="legend">
-      <span><i style="background:var(--accent)"></i>Lab and internships</span>
-      <span><i style="background:var(--bar-org)"></i>Organizations and events</span>
+      <span><i style="background:var(--accent)"></i>{t.legendWork}</span>
+      <span><i style="background:var(--bar-org)"></i>{t.legendOrg}</span>
     </div>
   </div>
 </div>
 
 <div class="org-tools">
-  <button class="chip" type="button" data-org-all aria-pressed="false">Expand all</button>
+  <button class="chip" type="button" data-org-all aria-pressed="false" data-expand={t.expandAll} data-collapse={t.collapseAll}>{t.expandAll}</button>
 </div>
 
 <div>
@@ -74,11 +79,11 @@ const ticks: [string, number][] = [["2024", 0], ["2025", 12], ["2026", 24]];
                 <div class="tag">{r.kind}</div>
                 {r.bullets.length > 0
                   ? <ul>{r.bullets.map((b) => <li>{b}</li>)}</ul>
-                  : <p class="pending">{("pending" in r && r.pending) || NA}</p>}
+                  : <p class="pending">{("pending" in r && r.pending) || t.pending}</p>}
                 {"honor" in r && r.honor && <p class="honor">{r.honor}</p>}
-                {"used" in r && r.used && <p class="used">Tools: {r.used}</p>}
+                {"used" in r && r.used && <p class="used">{t.tools}{r.used}</p>}
                 {proj && (
-                  <p class="used"><a class="projlink" href={`/work/${proj.id}`}>View the project: {proj.name} →</a></p>
+                  <p class="used"><a class="projlink" href={href(lang, `/work/${proj.id}`)}>{t.viewProject}{proj.name} →</a></p>
                 )}
               </div>
             );

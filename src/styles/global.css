@@ -87,11 +87,16 @@ a { color: inherit; }
   :root:not([data-theme="dark"]) .theme .sun { display: block; }
   :root:not([data-theme="dark"]) .theme .moon { display: none; }
 }
+.top nav a.lang { display: inline-grid; place-items: center; min-width: 2.1rem; height: 2.1rem; padding: 0 .55rem; border: 1px solid var(--line); border-radius: 999px;
+  font: 500 .72rem var(--font-mono); letter-spacing: .06em; transition: color .2s, border-color .2s; }
+.top nav a.lang::after { display: none; }
+.top nav a.lang:hover { color: var(--fg); border-color: var(--muted); }
 @media (max-width: 40rem) {
   .top .wrap { flex-direction: column; align-items: flex-start; }
   .top nav { width: 100%; gap: .25rem .9rem; }
   .top nav a { white-space: nowrap; font-size: .85rem; }
   .theme { position: absolute; right: 0; top: .6rem; }
+  .top nav a.lang { position: absolute; right: 2.7rem; top: .6rem; font-size: .72rem; }
 }
 
 /* Scroll reveal (only when JS is on) */

@@ -6,5 +6,17 @@ const site = process.env.SITE_URL || "https://portfolio-alifihsan.vercel.app/";
 
 export default defineConfig({
   site,
-  integrations: [sitemap()],
+  // English is the default at "/", Indonesian lives under "/id/".
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "id"],
+    routing: { prefixDefaultLocale: false },
+  },
+  integrations: [
+    sitemap({
+      // /print is the layout used to export the PDF portfolio; keep it out of the sitemap.
+      filter: (page) => !page.includes("/print"),
+      i18n: { defaultLocale: "en", locales: { en: "en", id: "id" } },
+    }),
+  ],
 });

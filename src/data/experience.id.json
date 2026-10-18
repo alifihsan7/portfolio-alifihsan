@@ -1,0 +1,83 @@
+{
+  "ASE Lab": {
+    "note": "Telkom University · 1 thn 4 bln",
+    "roles": [
+      {
+        "title": "Anggota",
+        "kind": "Anggota lab",
+        "dates": "Okt 2025 – Sekarang",
+        "pending": "Detail belum tersedia."
+      },
+      {
+        "title": "UI/UX Designer",
+        "kind": "Magang · Hybrid",
+        "dates": "Jul 2025 – Okt 2025",
+        "bullets": [
+          "Merancang pengalaman pengguna untuk Cyclefy, platform web yang mendorong ekonomi sirkular di kalangan mahasiswa, mencakup layanan donasi, barter, peminjaman, daur ulang, dan perbaikan.",
+          "Menjalankan usability testing dan mengiterasi desain berdasarkan masukan pengguna.",
+          "Bekerja dengan front-end developer dalam serah terima desain."
+        ],
+        "honor": "Meraih Best Project di ASE Lab Internship Program untuk Cyclefy."
+      }
+    ]
+  },
+  "Metanouva": {
+    "note": "Cimahi, Jawa Barat",
+    "roles": [
+      {
+        "title": "Web Developer",
+        "kind": "Magang · Hybrid",
+        "dates": "Jun 2026 – Agu 2026",
+        "bullets": [
+          "Bekerja dalam tim tujuh orang untuk Digi Money Manager, sistem keuangan proyek berbasis web untuk reimbursement dan catatan keuangan proyek, dengan Rapid Application Development (RAD).",
+          "Mendesain semua layar di Figma sendiri, untuk lima peran pengguna.",
+          "Membangun modul front-end dan endpoint pendukung bersama anggota tim lain.",
+          "Memperbaiki temuan QA di modul saya dan menulis buku panduan pengguna bersama tim."
+        ]
+      }
+    ]
+  },
+  "IMK Bandung": {
+    "note": "Organisasi mahasiswa",
+    "roles": [
+      {
+        "title": "Kepala Divisi Informasi dan Komunikasi",
+        "kind": "Organisasi · Hybrid",
+        "dates": "Des 2024 – Sep 2026",
+        "bullets": [
+          "Mengelola akun media sosial organisasi, termasuk perencanaan konten, penjadwalan, dan publikasi.",
+          "Mendesain konten media sosial seperti postingan feed, story, dan poster acara untuk mempromosikan acara dan program.",
+          "Mengawasi tim media dan mengoordinasikan kerja sama antardivisi."
+        ]
+      }
+    ]
+  },
+  "Al-Fath": {
+    "note": "Kabupaten Bandung · 2 thn",
+    "roles": [
+      {
+        "title": "Staf Departemen Media dan Komunikasi (Generasi 12)",
+        "kind": "Organisasi",
+        "dates": "Feb 2025 – Des 2025",
+        "pending": "Detail belum tersedia."
+      },
+      {
+        "title": "Staf Divisi Media, Fakultas Informatika (Generasi 11)",
+        "kind": "Organisasi",
+        "dates": "Jan 2024 – Jan 2025",
+        "pending": "Detail belum tersedia."
+      }
+    ]
+  },
+  "PMB I-Fest": {
+    "note": "Kabupaten Bandung",
+    "roles": [
+      {
+        "title": "Staf Media",
+        "kind": "Acara",
+        "dates": "Agu 2024 – Sep 2024",
+        "pending": "Detail belum tersedia."
+      }
+    ]
+  }
+}

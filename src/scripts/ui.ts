@@ -150,7 +150,8 @@ const navLinks = $$<HTMLAnchorElement>("[data-nav]");
 const sections = ["home", "work", "experience", "about", "contact"]
   .map((id) => document.getElementById(id))
   .filter((el): el is HTMLElement => !!el);
-if (location.pathname === "/" && sections.length) {
+const homePath = document.body.dataset.home || "/";
+if (location.pathname === homePath && sections.length) {
   const nav = new IntersectionObserver((entries) => {
     for (const e of entries) {
       if (!e.isIntersecting) continue;
@@ -185,7 +186,13 @@ const applyFilter = (cat: string) => {
     }
     shown++;
   });
-  if (status) status.textContent = cat === "All" ? "Showing all " + shown + " projects" : "Showing " + shown + " " + cat + (shown === 1 ? " project" : " projects");
+  if (status) {
+    const d = status.dataset;
+    const unit = (shown === 1 ? d.one : d.many) || "";
+    const label = chips.find((c) => c.dataset.c === cat)?.dataset.label || cat;
+    status.textContent = (cat === "All" ? d.all || "" : d.some || "")
+      .replace("{n}", String(shown)).replace("{cat}", label).replace("{unit}", unit);
+  }
 };
 chips.forEach((chip) => chip.addEventListener("click", () => applyFilter(chip.dataset.c || "All")));
 
@@ -212,7 +219,7 @@ const allBtn = $<HTMLButtonElement>("[data-org-all]");
 const syncAll = () => {
   if (!allBtn) return;
   const everyOpen = orgs.every((o) => o.open);
-  allBtn.textContent = everyOpen ? "Collapse all" : "Expand all";
+  allBtn.textContent = (everyOpen ? allBtn.dataset.collapse : allBtn.dataset.expand) || "";
   allBtn.setAttribute("aria-pressed", String(everyOpen));
 };
 allBtn?.addEventListener("click", () => {

@@ -1,0 +1,11 @@
+---
+import WorkView from "../../../views/WorkView.astro";
+import { projects } from "../../../data";
+
+export function getStaticPaths() {
+  return projects.map((p) => ({ params: { id: p.id }, props: { id: p.id } }));
+}
+const { id } = Astro.props;
+---
+
+<WorkView lang="id" id={id} />
