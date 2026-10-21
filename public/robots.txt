@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://portfolio-alifihsan.vercel.app/sitemap-index.xml
+Sitemap: https://portfolio.alifihsan.my.id/sitemap-index.xml

@@ -2,7 +2,7 @@ import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 
 // Replace with the real production URL once the Vercel domain is known.
-const site = process.env.SITE_URL || "https://portfolio-alifihsan.vercel.app/";
+const site = process.env.SITE_URL || "https://portfolio.alifihsan.my.id/";
 
 export default defineConfig({
   site,
