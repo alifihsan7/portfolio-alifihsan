@@ -15,7 +15,7 @@ export const swapPath = (pathname: string, to: Lang) => {
 export const dict = {
   en: {
     htmlLang: "en",
-    siteTitle: "Alif Ihsan — UI/UX Designer & Informatics Student",
+    siteTitle: "Alif Ihsan | UI/UX Designer & Informatics Student",
     siteDescription:
       "Portfolio of Alif Ihsan, an Informatics student at Telkom University focused on UI/UX design and currently learning data and AI.",
     ogAlt: "Alif Ihsan, UI/UX design and learning data and AI",
@@ -111,7 +111,7 @@ export const dict = {
 
   id: {
     htmlLang: "id",
-    siteTitle: "Alif Ihsan — Desainer UI/UX & Mahasiswa Informatika",
+    siteTitle: "Alif Ihsan | Desainer UI/UX & Mahasiswa Informatika",
     siteDescription:
       "Portofolio Alif Ihsan, mahasiswa Informatika Telkom University yang berfokus pada desain UI/UX dan sedang belajar data dan AI.",
     ogAlt: "Alif Ihsan, desain UI/UX dan belajar data dan AI",
