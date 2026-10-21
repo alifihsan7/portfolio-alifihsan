@@ -12,7 +12,7 @@ const lang: Lang = langOf(Astro.url.pathname);
 const t = useT(lang);
 const other: Lang = lang === "en" ? "id" : "en";
 
-const { title = "Alif Ihsan", description = t.siteDescription, ogType = "website" } = Astro.props;
+const { title = t.siteTitle, description = t.siteDescription, ogType = "website" } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const enUrl = new URL(swapPath(Astro.url.pathname, "en"), Astro.site);
@@ -20,6 +20,36 @@ const idUrl = new URL(swapPath(Astro.url.pathname, "id"), Astro.site);
 const isHome = Astro.url.pathname === href(lang, "/");
 const home = href(lang, "/");
 const ogImage = new URL("/og.png", Astro.site);
+
+const siteUrl = Astro.site ? Astro.site.toString() : "https://portfolio-alifihsan.vercel.app/";
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Alif Ihsan",
+  url: siteUrl,
+  jobTitle: lang === "id" ? "Desainer UI/UX & Mahasiswa Informatika" : "UI/UX Designer & Informatics Student",
+  description: description,
+  email: "mailto:aliffihsann@gmail.com",
+  sameAs: [
+    "https://www.linkedin.com/in/alifihsan7/",
+    "https://github.com/alifihsan7"
+  ],
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Telkom University"
+  },
+  memberOf: {
+    "@type": "Organization",
+    name: "Advanced Software Engineering Laboratory"
+  },
+  knowsAbout: [
+    "UI/UX Design",
+    "Frontend Development",
+    "TypeScript",
+    "Python",
+    "Figma"
+  ]
+};
 ---
 
 <!doctype html>
@@ -48,7 +78,11 @@ const ogImage = new URL("/og.png", Astro.site);
     <meta property="og:image:alt" content={t.ogAlt} />
     <meta property="og:locale" content={lang === "id" ? "id_ID" : "en_US"} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

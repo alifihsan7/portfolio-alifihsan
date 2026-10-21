@@ -64,7 +64,15 @@ const slides = projects.filter((p) => p.assets?.[0]);
                 data-name={p.name}
                 aria-label={t.openProject + p.name}
               >
-                <img src={p.assets[0]} alt={p.name + t.preview} width="1280" height="800" loading={i === 0 ? "eager" : "lazy"} />
+                <img
+                  src={p.assets[0]}
+                  alt={p.name + t.preview}
+                  width="1280"
+                  height="800"
+                  loading={i === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                  fetchpriority={i === 0 ? "high" : undefined}
+                />
               </a>
             ))}
           </div>

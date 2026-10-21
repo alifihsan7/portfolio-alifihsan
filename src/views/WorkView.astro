@@ -58,7 +58,14 @@ const showPager = projects.length > 1;
         {shots.map((g, i) => (
           <figure class="reveal" style={`--d:${i % 2}`}>
             <button class="zoom" type="button" data-zoom data-caption={g.caption} aria-label={`${t.enlarge}${g.caption}`}>
-              <img src={g.src} alt={g.alt} loading="lazy" />
+              <img
+                src={g.src}
+                alt={g.alt}
+                width="1280"
+                height="800"
+                loading={i === 0 ? "eager" : "lazy"}
+                decoding="async"
+              />
             </button>
             <figcaption>{g.caption}</figcaption>
           </figure>
@@ -73,7 +80,14 @@ const showPager = projects.length > 1;
           {phones.map((g, i) => (
             <figure class="reveal" style={`--d:${i % 3}`}>
               <button class="zoom" type="button" data-zoom data-caption={g.caption} aria-label={`${t.enlarge}${g.caption}`}>
-                <img src={g.src} alt={g.alt} loading="lazy" />
+                <img
+                  src={g.src}
+                  alt={g.alt}
+                  width="390"
+                  height="844"
+                  loading="lazy"
+                  decoding="async"
+                />
               </button>
               <figcaption>{g.caption}</figcaption>
             </figure>

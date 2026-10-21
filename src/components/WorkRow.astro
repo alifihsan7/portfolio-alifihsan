@@ -23,7 +23,7 @@ const meta = [p.category.map((c) => t.categories[c] ?? c).join(" / "), p.role ||
 >
   <span class="r-num">{String(index + 1).padStart(2, "0")}</span>
   <span class="r-title">{p.name}</span>
-  {thumb && <span class="r-mini" aria-hidden="true"><img src={thumb} alt="" loading="lazy" width="1280" height="800" /></span>}
+  {thumb && <span class="r-mini" aria-hidden="true"><img src={thumb} alt="" loading="lazy" decoding="async" width="1280" height="800" /></span>}
   <span class="r-side">
     <span class="r-year">{p.year || ""}</span>
     <span class="r-arr" aria-hidden="true">↗</span>
@@ -32,6 +32,6 @@ const meta = [p.category.map((c) => t.categories[c] ?? c).join(" / "), p.role ||
     <span class="r-desc">{p.description || t.na}</span>
     <span class="r-meta">{meta.map((t) => <span>{t}</span>)}</span>
     <span class="tech">{projectTech(p) || t.na}</span>
-    {thumb && <span class="r-thumb"><img src={thumb} alt={p.name + t.preview} loading="lazy" width="1280" height="800" /></span>}
+    {thumb && <span class="r-thumb"><img src={thumb} alt={p.name + t.preview} loading="lazy" decoding="async" width="1280" height="800" /></span>}
   </span>
 </a>
