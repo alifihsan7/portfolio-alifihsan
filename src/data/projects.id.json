@@ -1,4 +1,81 @@
 {
+  "ai7-finance": {
+    "description": "Ekosistem keuangan personal otonom dan deterministik yang memadukan bot Telegram berlatensi rendah untuk pencatatan instan dengan dashboard web taktil bertema obsidian, alokasi gajian 14 hari, dan batas belanja harian Safe-to-Spend.",
+    "role": "Full-Stack Engineer & Desainer UI/UX",
+    "team": "Proyek mandiri (Arsitektur sistem, backend, bot, dan frontend)",
+    "platform": "Web & Telegram",
+    "problem": "Aplikasi pencatat keuangan konvensional menuntut terlalu banyak langkah input dan formulir berbelit untuk pengeluaran sepele, memicu kelelahan pencatatan dan data yang terbengkalai. Sementara spreadsheet tidak memiliki validasi data seketika, lambat diakses di ponsel, dan tidak menyediakan visualisasi laju belanja (burn-rate pacing) antar-gajian.",
+    "goal": "Membangun sistem keuangan tanpa friksi: mencatat pengeluaran harian dalam waktu kurang dari 3 detik via bot Telegram, menjamin transfer antar-rekening berpasangan secara atomik di 5 rekening bank, serta menyajikan dashboard web dark-mode taktil dengan visualisasi pacing belanja adaptif.",
+    "myContribution": "Merancang dan membangun arsitektur sistem dari hulu ke hilir: mendesain antarmuka web taktil di Next.js dan Tailwind CSS dengan standardisasi target sentuh minimum 44px serta synchronous double-submit guard; membangun backend FastAPI dan skema PostgreSQL dengan eliminasi transfer yatim; mengembangkan bot Telegram ber-parser regex 3 tingkat; serta mengonfigurasi deployment mandiri di VPS Ubuntu.",
+    "result": "Beroperasi aktif dalam produksi harian pribadi. Mencatat transaksi dalam waktu di bawah 3 detik dengan integritas data 100%, menghapus deviasi anggaran pada siklus gajian 14 hari.",
+    "lede": "Sistem keuangan personal otonom yang menggantikan pencatatan spreadsheet manual. Memadukan bot Telegram untuk pencatatan instan di bawah 3 detik dengan dashboard web taktil Next.js yang menghitung batas belanja harian Safe-to-Spend dalam siklus gajian 14 hari.",
+    "links": [
+      { "label": "Buka Dashboard Web" },
+      { "label": "Repositori GitHub" },
+      { "label": "Bot Telegram (@AI7Fin4nc3_bot)" }
+    ],
+    "gallery": [
+      {
+        "alt": "Dashboard web AI7 Finance menampilkan total kekayaan bersih, batas belanja harian safe-to-spend, alokasi anggaran 5 rekening, dan buku transaksi.",
+        "caption": "Ringkasan eksekutif: agregasi kekayaan bersih di rekening Mandiri, Jago, Bibit, dan BRI beserta panduan pacing belanja harian Safe-to-Spend real-time."
+      },
+      {
+        "alt": "Dialog modal pencatatan transaksi baru dengan masking nominal ribuan dan pemilih kategori taktil.",
+        "caption": "Modal pencatatan transaksi: input nominal berpemisah ribuan otomatis dengan proteksi synchronous double-submit guard."
+      },
+      {
+        "alt": "Tampilan mobile dashboard AI7 Finance dengan bilah navigasi bawah ergonomis, kartu ringkas, dan target sentuh ramah jempol.",
+        "caption": "Ergonomi mobile: navigasi zona jempol, tata letak kartu ringkas, dan ukuran tombol minimum 44px untuk evaluasi satu tangan."
+      }
+    ],
+    "sections": [
+      {
+        "h": "Gambaran umum",
+        "p": [
+          "ai7.finance adalah sistem keuangan personal mandiri (self-hosted) dan deterministik yang dirancang untuk melenyapkan friksi pencatatan anggaran manual. Alih-alih bergantung pada spreadsheet rumit atau aplikasi bank lambat, sistem ini memecah alur kerja menjadi dua kanal tersinkronisasi: bot Telegram berkecepatan tinggi untuk pencatatan spontan di jalan, dan dashboard web taktil untuk analisis mendalam serta alokasi anggaran.",
+          "Arsitektur anggaran berakar pada siklus gajian 14 hari. Berbeda dari pelacak pengeluaran konvensional yang hanya melihat ke belakang, dashboard ini menghitung batas belanja harian adaptif 'Safe-to-Spend' agar alokasi belanja operasional bertahan presisi hingga siklus gajian berikutnya."
+        ]
+      },
+      {
+        "h": "Arsitektur Dua Kanal & Bot Telegram",
+        "p": [
+          "Pencatatan pengeluaran di ponsel harus selesai dalam waktu kurang dari 3 detik agar menjadi kebiasaan tanpa beban. Bot pendamping Telegram (@AI7Fin4nc3_bot) memanfaatkan parser regex dan NLP 3 tingkat yang mampu mengenali format cepat seperti 'kopi 25k mandiri' atau 'makan siang 45000' seketika.",
+          "Untuk perpindahan dana antar-pos rekening, bot dan backend menjalankan transaksi dua arah atomik (transfer.py), menjamin dana yang didebit dari rekening operasional (misal: Mandiri) langsung dikreditkan ke pos tabungan/amplop tanpa meninggalkan transaksi yatim atau saldo mengambang."
+        ]
+      },
+      {
+        "h": "Frontend Taktil & Sistem Desain Anti-Slop",
+        "p": [
+          "Dashboard web dirancang dengan filosofi desain anti-slop yang tegas. Dibangun menggunakan Next.js dan Tailwind CSS, antarmuka ini menolak gradien neon ungu kecerdasan buatan yang klise dan teks abu-abu kontras rendah, memilih palet obsidian zinc gelap (#090A0D), garis batas subtil, serta tipografi kontras tinggi dengan angka tabular (tabular-nums) untuk presisi mata uang.",
+          "Secara ergonomis, setiap elemen interaktif memenuhi standar aksesibilitas WCAG AA dengan target sentuh minimum 44px (min-h-[44px]). Seluruh input formulir mata uang menggunakan masking angka otomatis, sementara tombol aksi dilindungi oleh synchronous double-submit guard (isSubmittingRef) guna mencegah duplikasi transaksi saat jaringan mengalami latensi."
+        ]
+      },
+      {
+        "h": "Deployment Produksi & Kedaulatan Data",
+        "p": [
+          "Seluruh infrastruktur berjalan mandiri di VPS Ubuntu pribadi menggunakan Docker container untuk FastAPI dan PostgreSQL dengan mekanisme retensi snapshot terjadwal. Frontend diekspor secara statis dan disajikan langsung melalui mount statis FastAPI di balik reverse proxy Nginx berenkripsi TLS."
+        ]
+      }
+    ],
+    "stats": [
+      {
+        "k": "Kecepatan Catat",
+        "n": "Rata-rata waktu pencatatan transaksi via bot Telegram"
+      },
+      {
+        "k": "Siklus Anggaran",
+        "n": "Model pacing dua mingguan dengan laju Safe-to-Spend real-time"
+      },
+      {
+        "k": "Keandalan Sistem",
+        "n": "Transfer atomik dua arah tanpa selisih saldo yatim"
+      },
+      {
+        "k": "Standar Sentuh",
+        "n": "Target sentuh minimum untuk seluruh kontrol interaktif"
+      }
+    ]
+  },
   "digi-money-manager": {
     "description": "Sistem keuangan proyek berbasis web yang memusatkan reimbursement dan catatan keuangan proyek untuk PT Metanouva Informatika.",
     "role": "UI/UX Designer dan Programmer",

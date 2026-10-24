@@ -1,5 +1,130 @@
 [
   {
+    "id": "ai7-finance",
+    "name": "ai7.finance",
+    "year": 2026,
+    "category": [
+      "Full-Stack",
+      "UI/UX",
+      "Personal Finance"
+    ],
+    "type": "Personal Project",
+    "description": "Autonomous, deterministic personal finance system combining a low-friction Telegram quick-capture bot with a dark tactile web dashboard featuring bi-weekly paycheck allocation and Safe-to-Spend pacing.",
+    "role": "Full-Stack Engineer & UI/UX Designer",
+    "team": "Solo project (System architecture, backend, bot, and frontend)",
+    "platform": "Web & Telegram",
+    "tools": [
+      "Figma",
+      "Docker"
+    ],
+    "technology": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "FastAPI",
+      "PostgreSQL",
+      "python-telegram-bot"
+    ],
+    "problem": "Traditional budgeting apps demand excessive manual categorization and multi-step modal entry for every small expense, leading to user fatigue and abandoned ledgers. Spreadsheets lack real-time input validation, mobile-friendly interfaces, and automated burn-rate pacing between paychecks.",
+    "goal": "Build a frictionless, zero-leak financial system: log daily expenses in under 3 seconds via Telegram natural-language regex, maintain atomic two-legged balance transfers across 5 bank accounts, and provide an obsidian dark-mode web dashboard with instant visual pacing.",
+    "process": "",
+    "myContribution": "Architected the complete system end-to-end: designed the dark tactile UI system in Next.js and Tailwind CSS with 44px minimum touch targets and synchronous double-submit guards; built the FastAPI backend and PostgreSQL schema with atomic balance transfers; implemented the Telegram bot with a 3-tier NLP nominal parser; deployed and self-hosted the entire stack on an Ubuntu VPS.",
+    "result": "In daily production use. Achieved sub-3-second daily expense logging with 100% data integrity, eliminating spreadsheet drift across 14-day paycheck cycles.",
+    "reflection": "",
+    "assets": [
+      "/img/ai7finance-thumb.webp"
+    ],
+    "links": [
+      {
+        "label": "Web Dashboard",
+        "url": "https://ai7finance.alifihsan.my.id",
+        "public": true
+      },
+      {
+        "label": "GitHub Repository",
+        "url": "https://github.com/alifihsan7/ai7-finance",
+        "public": true
+      },
+      {
+        "label": "Telegram Bot (@AI7Fin4nc3_bot)",
+        "url": "https://t.me/AI7Fin4nc3_bot",
+        "public": true
+      }
+    ],
+    "format": "PROJECT SHOWCASE",
+    "status": "PUBLISHED",
+    "lede": "An autonomous personal finance stack designed to replace high-friction spreadsheet logging. It pairs a Telegram bot for instant expense capture with a tactile Next.js dashboard that calculates daily Safe-to-Spend limits across a 14-day paycheck cycle.",
+    "gallery": [
+      {
+        "src": "/img/ai7finance-dashboard.webp",
+        "alt": "AI7 Finance web dashboard showing total net worth, daily safe-to-spend limit, bi-weekly budget allocation across 5 accounts, and transaction ledger.",
+        "caption": "Executive overview: net worth aggregation across Mandiri, Jago, Bibit, and BRI accounts alongside real-time Safe-to-Spend daily pacing."
+      },
+      {
+        "src": "/img/ai7finance-modal.webp",
+        "alt": "Modal dialog for recording a transaction with real-time numeric masking and tactile category selectors.",
+        "caption": "Quick-entry transaction modal: custom currency input with automatic thousand separators and synchronous double-submit protection."
+      },
+      {
+        "src": "/img/ai7finance-mobile.webp",
+        "alt": "Mobile view of AI7 Finance dashboard with ergonomic bottom navigation, quick actions, and compact account summaries.",
+        "caption": "Mobile ergonomics: thumb-zone navigation, tactile card layout, and 44px touch targets optimized for one-handed handheld review.",
+        "phone": true
+      }
+    ],
+    "sections": [
+      {
+        "h": "Overview",
+        "p": [
+          "ai7.finance is a self-hosted, deterministic personal finance system built to eliminate manual budgeting friction. Instead of wrestling with heavyweight banking apps or spreadsheets, the system bifurcates the workflow into two synchronized channels: a lightning-fast Telegram bot for on-the-go quick capture, and a rich, tactile web dashboard for analytical reviews and budget allocation.",
+          "The architecture enforces strict financial discipline around a 14-day paycheck cycle. Rather than looking backward at historical spending, the dashboard computes forward-looking 'Safe-to-Spend' daily pacing to ensure discretionary funds last until the next income milestone."
+        ]
+      },
+      {
+        "h": "Dual-Channel Architecture & Telegram Bot",
+        "p": [
+          "Logging expenses on mobile must take less than 3 seconds to remain habitual. The Telegram companion bot (@AI7Fin4nc3_bot) utilizes a 3-level regex and NLP parser capable of deciphering shorthand strings like 'kopi 25k mandiri' or 'makan siang 45000' instantly.",
+          "For inter-account transfers, the bot and backend execute atomic two-legged transactions (transfer.py), guaranteeing that money debited from an operational account (e.g. Mandiri) is credited to an envelope or savings account without orphan balance anomalies or floating states."
+        ]
+      },
+      {
+        "h": "Tactile Frontend & Anti-Slop Design System",
+        "p": [
+          "The web dashboard is engineered with an uncompromising anti-slop design ethos. Built on Next.js and Tailwind CSS, it avoids trendy AI neon gradients and low-contrast text in favor of an obsidian zinc palette (#090A0D), subtle micro-borders, and high-contrast typography with tabular figures (tabular-nums) for currency precision.",
+          "Ergonomically, every interactive element adheres to WCAG AA accessibility standards and a minimum 44px tap target (min-h-[44px]). Form inputs use custom masked currency controls, while state transitions employ synchronous double-submit locks (isSubmittingRef) to eliminate duplicate transactions under network latency."
+        ]
+      },
+      {
+        "h": "Production Deployment & Sovereign Infrastructure",
+        "p": [
+          "The entire stack runs self-hosted in production on an Ubuntu VPS, managed via Docker containers for FastAPI and PostgreSQL with automated snapshot persistence. The frontend is statically exported and served directly via FastAPI mount points behind an Nginx reverse proxy with TLS encryption."
+        ]
+      }
+    ],
+    "stats": [
+      {
+        "k": "Capture Speed",
+        "v": "< 3s",
+        "n": "Average time from thought to logged transaction via Telegram bot"
+      },
+      {
+        "k": "Budget Cycle",
+        "v": "14 Days",
+        "n": "Bi-weekly paycheck pacing model with real-time Safe-to-Spend burn rates"
+      },
+      {
+        "k": "System Reliability",
+        "v": "100%",
+        "n": "Atomic two-legged transfers with zero orphan balance drift"
+      },
+      {
+        "k": "Touch Standards",
+        "v": "44px",
+        "n": "Strict minimum touch target sizing for all interactive elements"
+      }
+    ]
+  },
+  {
     "id": "digi-money-manager",
     "name": "Digi Money Manager",
     "year": 2026,
